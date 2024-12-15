@@ -18,3 +18,10 @@ In the project directory, you can run:
 - [Google Fonts](https://fonts.google.com/specimen/Josefin+Sans)
 - [Josefin Sans Font](https://github.com/googlefonts/josefinsans)
 - [GeeksForGeeks](https://www.geeksforgeeks.org/create-todo-app-using-reactjs)
+
+## License:
+
+- This project is licensed under MIT.
+- The used font is licensed under the SIL Open Font License, Version 1.1.
+
+For more information please visit the license files.
