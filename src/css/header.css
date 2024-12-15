@@ -1,16 +1,2 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px;
-}
-
-.logo {
-  display: flex;
-  gap: 5px;
-}
-
-.logo > h1 {
-  font-size: 25px;
-  font-weight: bold;
 }

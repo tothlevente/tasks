@@ -1,15 +1,14 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import List from "./components/List";
+import { ThemeProvider } from "@/components/theme-provider";
+
+import Header from "./components/contents/Header";
 
 export default function App() {
   return (
-    <div className="site-wrapper">
+    <ThemeProvider
+      defaultTheme="light"
+      storageKey="vite-ui-theme"
+    >
       <Header />
-      <main>
-        <List />
-      </main>
-      <Footer />
-    </div>
+    </ThemeProvider>
   );
 }

@@ -1,7 +1,7 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import ListProps from "../interfaces/ListProps";
+import ListProps from "../../interfaces/ListProps";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -14,7 +14,10 @@ export default function List() {
   const [list, setList] = useState<ListProps[]>([]);
 
   function addItem() {
-    setList([...list, { id: Math.round(Math.random() * 10000000), value: userInput }]);
+    setList([
+      ...list,
+      { id: Math.round(Math.random() * 10000000), value: userInput },
+    ]);
     setUserInput("");
   }
 
@@ -57,7 +60,10 @@ export default function List() {
                 className="mt-3 input-group-button"
                 onClick={() => addItem()}
               >
-                <i style={{ marginRight: "10px" }} className="bi bi-plus-circle"></i>
+                <i
+                  style={{ marginRight: "10px" }}
+                  className="bi bi-plus-circle"
+                ></i>
                 Add
               </Button>
             </InputGroup>
@@ -71,9 +77,15 @@ export default function List() {
             {list.map((item: any, index: number) => {
               return (
                 <div key={index}>
-                  <ListGroup.Item variant="light" className="list-group-item">
+                  <ListGroup.Item
+                    variant="light"
+                    className="list-group-item"
+                  >
                     <div>
-                      <i className="bi bi-star-fill" style={{ paddingRight: "10px" }}></i>
+                      <i
+                        className="bi bi-star-fill"
+                        style={{ paddingRight: "10px" }}
+                      ></i>
                       {item.value}
                     </div>
                     <span>
