@@ -10,8 +10,6 @@ export default function App() {
   const [userInput, setUserInput] = useState("");
   const [todoList, setTodoList] = useState<TodoProps[]>([]);
 
-  console.log(todoList);
-
   return (
     <ThemeProvider
       defaultTheme="light"
