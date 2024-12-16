@@ -16,8 +16,8 @@ In the project directory, you can run:
 - [Shadcn UI](https://ui.shadcn.com/)
 - [Lucide Icons](https://lucide.dev)
 - [Google Fonts](https://fonts.google.com/specimen/Josefin+Sans)
-- [Josefin Sans Font](https://github.com/googlefonts/josefinsans)
 - [GeeksForGeeks](https://www.geeksforgeeks.org/create-todo-app-using-reactjs)
+- [Josefin Sans Font](https://github.com/googlefonts/josefinsans)
 
 ## License:
 
