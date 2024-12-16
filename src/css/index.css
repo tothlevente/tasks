@@ -39,6 +39,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --button-background: #0284c7;
   }
 
   .dark {
@@ -88,5 +89,9 @@
 
   main {
     flex: 1;
+  }
+
+  .dialog-content {
+    background-color: var(--background);
   }
 }
