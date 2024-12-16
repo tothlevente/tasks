@@ -1,25 +1,26 @@
-import InputProps from "@/interfaces/InputProps";
-import AddTodoDialog from "../add-todo-dialog";
 import HeaderTitle from "../header-title";
+import CirclePlus from "../icons/circle-plus";
 
 import { ModeToggle } from "../mode-toggle";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
-export default function Header({
-  userInput,
-  setUserInput,
-  todoList,
-  setTodoList,
-}: InputProps) {
+export default function Header() {
   return (
     <div className="header">
       <HeaderTitle />
       <div className="header-container">
-        <AddTodoDialog
-          userInput={userInput}
-          setUserInput={setUserInput}
-          todoList={todoList}
-          setTodoList={setTodoList}
+        <Input
+          type="text"
+          placeholder="Add your todo here. Click save when you're done."
         />
+        <Button
+          variant="outline"
+          size="icon"
+          style={{ marginRight: "5px" }}
+        >
+          <CirclePlus />
+        </Button>
         <ModeToggle />
       </div>
     </div>

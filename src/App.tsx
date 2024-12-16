@@ -17,12 +17,7 @@ export default function App() {
       defaultTheme="light"
       storageKey="vite-ui-theme"
     >
-      <Header
-        userInput={userInput}
-        setUserInput={setUserInput}
-        todoList={todoList}
-        setTodoList={setTodoList}
-      />
+      <Header />
       <TodoList />
       <Footer />
     </ThemeProvider>

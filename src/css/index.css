@@ -90,8 +90,4 @@
   main {
     flex: 1;
   }
-
-  .dialog-content {
-    background-color: var(--background);
-  }
 }
