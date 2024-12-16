@@ -1,6 +1,5 @@
 export default interface ListProps {
-  id: string;
+  id: number;
   title: string;
   completed: boolean;
-  createdAt: Date;
 }

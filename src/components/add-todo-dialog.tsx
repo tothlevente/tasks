@@ -1,5 +1,6 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -12,8 +13,27 @@ import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 
 import CirclePlus from "./icons/circle-plus";
+import InputProps from "@/interfaces/InputProps";
 
-export default function AddTodoDialog() {
+export default function AddTodoDialog({
+  userInput,
+  setUserInput,
+  todoList,
+  setTodoList,
+}: InputProps) {
+  function addItem() {
+    setTodoList([
+      ...todoList,
+      {
+        id: Math.round(Math.random() * 10000000),
+        title: userInput,
+        completed: false,
+      },
+    ]);
+
+    setUserInput("");
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -35,13 +55,23 @@ export default function AddTodoDialog() {
         <div className="grid gap-4 py-4">
           <div className="flex items-center gap-4">
             <Input
-              id="name"
+              id="item"
+              value={userInput}
+              onChange={(item) => setUserInput(item.target.value)}
               className="col-span-3"
             />
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <DialogClose asChild>
+            <Button
+              type="button"
+              disabled={userInput.length === 0}
+              onClick={() => addItem()}
+            >
+              Save changes
+            </Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
