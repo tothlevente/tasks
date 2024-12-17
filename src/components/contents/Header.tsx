@@ -51,16 +51,18 @@ export default function Header({
             setUserInput(item.target.value);
           }}
         />
-        <Button
-          variant="outline"
-          size="icon"
-          style={{ marginRight: "5px" }}
-          onClick={() => addTodo()}
-          disabled={userInput.length === 0}
-        >
-          <CirclePlus />
-        </Button>
-        <ModeToggle />
+        <div className="header-min-container">
+          <Button
+            variant="outline"
+            size="icon"
+            style={{ marginRight: "5px" }}
+            onClick={() => addTodo()}
+            disabled={userInput.length === 0}
+          >
+            <CirclePlus />
+          </Button>
+          <ModeToggle />
+        </div>
       </div>
     </div>
   );
