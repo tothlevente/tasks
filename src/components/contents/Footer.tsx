@@ -11,6 +11,7 @@ export default function Footer() {
       <p>
         This website is does not use cookies and collect data about you.
       </p>
+      <p>Only use local storage to save your to-do list.</p>
       <p>For more information please visit the project repository.</p>
       <p>Thank you for your visiting and intrest! 👍️</p>
       <p>Created by Levente in 2024 | v{packageJson.version}</p>
