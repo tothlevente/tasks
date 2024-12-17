@@ -1,5 +1,6 @@
-@import "header.css";
-@import "footer.css";
+@import url("header.css");
+@import url("footer.css");
+@import url("todos.css");
 
 @tailwind base;
 @tailwind components;
@@ -16,8 +17,9 @@
   :root {
     --background: #f3f4f6;
     --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
+    --card: #fde68a;
     --card-foreground: 0 0% 3.9%;
+    --card-border-block-color: 0 0% 89.8%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
     --primary: 0 0% 9%;
@@ -39,14 +41,15 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --button-background: #0284c7;
+    --button-background: #f59e0b;
   }
 
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
+    --card: #57534e;
     --card-foreground: 0 0% 98%;
+    --card-border-block-color: 37.7 92.1% 50.2%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
@@ -67,6 +70,7 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --button-background: #f59e0b;
   }
 }
 
@@ -86,12 +90,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-    }
-  }
-
-  .todo-list {
-    @media only screen and (min-width: 800px) {
-      flex: 1;
     }
   }
 }
