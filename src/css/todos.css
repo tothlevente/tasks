@@ -5,12 +5,8 @@
 }
 
 .todo-list-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  justify-self: center;
-  max-width: 1500px;
+  display: grid;
+  justify-items: center;
 }
 
 .todo-card {

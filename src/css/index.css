@@ -17,7 +17,7 @@
   :root {
     --background: #f3f4f6;
     --foreground: 0 0% 3.9%;
-    --card: #fde68a;
+    --card: #d4d4d4;
     --card-foreground: 0 0% 3.9%;
     --card-border-block-color: 0 0% 89.8%;
     --popover: 0 0% 100%;
@@ -41,13 +41,15 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --button-background: #f59e0b;
+    --button-background: #262626;
+    --check-button-foreground: #10b981;
+    --check-button-background: #fafafa;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 240 3.7% 15.9%;
     --foreground: 0 0% 98%;
-    --card: #57534e;
+    --card: #404040;
     --card-foreground: 0 0% 98%;
     --card-border-block-color: 37.7 92.1% 50.2%;
     --popover: 0 0% 3.9%;
@@ -70,7 +72,9 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --button-background: #f59e0b;
+    --button-background: #d4d4d4;
+    --check-button-foreground: #86efac;
+    --check-button-background: #404040;
   }
 }
 
@@ -91,5 +95,10 @@
       flex-direction: column;
       min-height: 100vh;
     }
+  }
+
+  .circle-check-button {
+    color: var(--check-button-foreground) !important;
+    background-color: var(--check-button-background) !important;
   }
 }

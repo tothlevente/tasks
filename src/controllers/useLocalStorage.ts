@@ -1,8 +1,10 @@
 import { TodoProps } from "@/interfaces/TodoProps";
 
+const key = "todos";
+
 export const getLocalStorage = () => {
-  return localStorage.getItem("todos") !== null
-    ? JSON.parse(localStorage.getItem("todos")!)
+  return localStorage.getItem(key) !== null
+    ? JSON.parse(localStorage.getItem(key)!)
     : [];
 };
 
@@ -14,7 +16,7 @@ export const setLocalStorage = (
   createdAt: Date
 ) => {
   localStorage.setItem(
-    "todos",
+    key,
     JSON.stringify([
       ...todos,
       {
@@ -25,4 +27,8 @@ export const setLocalStorage = (
       },
     ])
   );
+};
+
+export const updateLocalStorage = (todos: TodoProps[]) => {
+  localStorage.setItem(key, JSON.stringify(todos));
 };

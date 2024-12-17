@@ -1,4 +1,9 @@
-import { getLocalStorage } from "./controllers/useLocalStorage";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  updateLocalStorage,
+} from "./controllers/useLocalStorage";
+
 import { ThemeProvider } from "@/components/theme-provider";
 import { TodoProps } from "./interfaces/TodoProps";
 import { useEffect, useState } from "react";
@@ -15,6 +20,52 @@ export default function App() {
     setTodoList(getLocalStorage());
   }, [setTodoList]);
 
+  function addTodo() {
+    const id: number = Math.round(Math.random() * 10000000);
+    const title: string = userInput;
+    const completed: boolean = false;
+    const createdAt: Date = new Date();
+
+    const todos = [
+      ...todoList,
+      {
+        id: id,
+        title: title,
+        completed: completed,
+        createdAt: createdAt,
+      },
+    ];
+
+    setTodoList(todos);
+    setLocalStorage(todoList, id, title, completed, createdAt);
+    setUserInput("");
+  }
+
+  function copyTodo(key: number) {
+    const values = [...todoList];
+    const update = values.filter((todo) => todo.id == key);
+
+    setUserInput(update[0].title);
+  }
+
+  function toggleCompleteTodo(key: number) {
+    const values = [...todoList];
+    const update = values.map((tudu) =>
+      tudu.id === key ? { ...tudu, completed: !tudu.completed } : tudu
+    );
+
+    setTodoList(update);
+    updateLocalStorage(update);
+  }
+
+  function deleteTodo(key: number) {
+    const values = [...todoList];
+    const update = values.filter((todo) => todo.id !== key);
+
+    setTodoList(update);
+    updateLocalStorage(update);
+  }
+
   return (
     <ThemeProvider
       defaultTheme="light"
@@ -24,10 +75,14 @@ export default function App() {
         <Header
           userInput={userInput}
           setUserInput={setUserInput}
-          todoList={todoList}
-          setTodoList={setTodoList}
+          addTodo={addTodo}
         />
-        <TodoList list={todoList} />
+        <TodoList
+          list={todoList}
+          toggleCompleteTodo={toggleCompleteTodo}
+          copyTodo={copyTodo}
+          deleteTodo={deleteTodo}
+        />
         <Footer />
       </div>
     </ThemeProvider>

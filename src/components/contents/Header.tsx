@@ -1,8 +1,6 @@
 import CirclePlus from "../icons/circle-plus";
 import HeaderTitle from "../header-title";
 
-import { setLocalStorage } from "@/controllers/useLocalStorage";
-import { TodoProps } from "@/interfaces/TodoProps";
 import { ModeToggle } from "../mode-toggle";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -10,35 +8,12 @@ import { Input } from "../ui/input";
 export default function Header({
   userInput,
   setUserInput,
-  todoList,
-  setTodoList,
+  addTodo,
 }: {
   userInput: string;
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
-  todoList: TodoProps[];
-  setTodoList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
+  addTodo: () => void;
 }) {
-  const addTodo = () => {
-    const id: number = Math.round(Math.random() * 10000000);
-    const title: string = userInput;
-    const completed: boolean = false;
-    const createdAt: Date = new Date();
-
-    const todos = [
-      ...todoList,
-      {
-        id: id,
-        title: title,
-        completed: completed,
-        createdAt: createdAt,
-      },
-    ];
-
-    setTodoList(todos);
-    setLocalStorage(todoList, id, title, completed, createdAt);
-    setUserInput("");
-  };
-
   return (
     <div className="header">
       <HeaderTitle />
