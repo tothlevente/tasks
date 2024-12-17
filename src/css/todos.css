@@ -29,17 +29,22 @@
   padding: 10px;
 }
 
-.repository-card-header {
+.todo-card-header {
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.repository-card-title {
+.todo-card-title {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.repository-card-footer {
+.completed {
+  color: var(--check-completed);
+  text-decoration: line-through;
+}
+
+.todo-card-footer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -47,6 +52,6 @@
   align-items: center;
 }
 
-.repository-card-footer > Button {
+.todo-card-footer > Button {
   margin-right: 5px;
 }

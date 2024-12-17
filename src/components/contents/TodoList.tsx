@@ -25,10 +25,18 @@ export default function TodoList({
             key={index}
             className="todo-card"
           >
-            <div className="repository-card-header">
-              <p className="repository-card-title">{value.title}</p>
+            <div className="todo-card-header">
+              <p
+                className={
+                  value.completed
+                    ? "todo-card-title completed"
+                    : "todo-card-title"
+                }
+              >
+                {value.title}
+              </p>
             </div>
-            <div className="repository-card-footer">
+            <div className="todo-card-footer">
               {value.completed ? (
                 <Button
                   variant="outline"

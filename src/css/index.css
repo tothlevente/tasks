@@ -15,9 +15,9 @@
 
 @layer base {
   :root {
-    --background: #f3f4f6;
+    --background: 0 0% 96.1%;
     --foreground: 0 0% 3.9%;
-    --card: #d4d4d4;
+    --card: #e5e5e5;
     --card-foreground: 0 0% 3.9%;
     --card-border-block-color: 0 0% 89.8%;
     --popover: 0 0% 100%;
@@ -42,8 +42,9 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
     --button-background: #262626;
-    --check-button-foreground: #10b981;
-    --check-button-background: #fafafa;
+    --check-button-foreground: #059669;
+    --check-button-background: #a7f3d0;
+    --check-completed: #a3a3a3;
   }
 
   .dark {
@@ -75,6 +76,7 @@
     --button-background: #d4d4d4;
     --check-button-foreground: #86efac;
     --check-button-background: #404040;
+    --check-completed: #a3a3a3;
   }
 }
 
