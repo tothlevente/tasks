@@ -87,7 +87,7 @@
     min-height: 100vh;
   }
 
-  main {
+  .todo-list {
     flex: 1;
   }
 }

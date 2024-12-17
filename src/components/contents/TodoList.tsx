@@ -2,9 +2,9 @@ import { TodoProps } from "@/interfaces/TodoProps";
 
 export default function TodoList({ list }: { list: TodoProps[] }) {
   return (
-    <div>
+    <div className="todo-list">
       {list.map((value, index) => (
-        <div>{value.title}</div>
+        <div key={index}>{value.title}</div>
       ))}
     </div>
   );
