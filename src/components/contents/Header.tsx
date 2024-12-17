@@ -1,16 +1,19 @@
 import CirclePlus from "../icons/circle-plus";
 import HeaderTitle from "../header-title";
+import Settings from "../settings";
 
+import { TodoProps } from "@/interfaces/TodoProps";
 import { ModeToggle } from "../mode-toggle";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import Settings from "../settings";
 
 export default function Header({
+  list,
   userInput,
   setUserInput,
   addTodo,
 }: {
+  list: TodoProps[];
   userInput: string;
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
   addTodo: () => void;
@@ -37,7 +40,7 @@ export default function Header({
           >
             <CirclePlus />
           </Button>
-          <Settings />
+          <Settings list={list} />
           <ModeToggle />
         </div>
       </div>

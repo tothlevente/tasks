@@ -73,6 +73,7 @@ export default function App() {
     >
       <div className="site-wrapper">
         <Header
+          list={todoList}
           userInput={userInput}
           setUserInput={setUserInput}
           addTodo={addTodo}
@@ -83,6 +84,7 @@ export default function App() {
           copyTodo={copyTodo}
           deleteTodo={deleteTodo}
         />
+
         <Footer />
       </div>
     </ThemeProvider>

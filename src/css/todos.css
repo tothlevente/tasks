@@ -9,6 +9,12 @@
   justify-items: center;
 }
 
+.todo-list-no-content {
+  display: grid;
+  justify-items: center;
+  margin-top: 50px;
+}
+
 .todo-card {
   display: flex;
   flex-direction: column;
@@ -27,6 +33,11 @@
   height: 90px;
   margin: 20px;
   padding: 10px;
+
+  @media only screen and (max-width: 540px) {
+    width: 320px;
+    height: 130px;
+  }
 }
 
 .todo-card-header {
@@ -50,6 +61,14 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-end;
+
+  @media only screen and (max-width: 540px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
 }
 
 .todo-card-footer-button {

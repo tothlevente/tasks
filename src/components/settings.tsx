@@ -10,13 +10,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { TodoProps } from "@/interfaces/TodoProps";
 import { Button } from "./ui/button";
 
+import handleFileDownload from "@/controllers/handleFileDownload";
 import CircleSettings from "./icons/circle-settings";
 import FloppyDisk from "./icons/floppy-disk";
 import Download from "./icons/download";
 
-export default function Settings() {
+export default function Settings({ list }: { list: TodoProps[] }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -54,7 +56,12 @@ export default function Settings() {
         </DropdownMenuSub>
 
         <DropdownMenuSub>
-          <DropdownMenuItem>
+          <DropdownMenuItem
+            disabled={list.length === 0}
+            onClick={() => {
+              handleFileDownload(list);
+            }}
+          >
             <Download />
             <span>Download my content to this computer in text file </span>
           </DropdownMenuItem>
