@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 
 import CircleCheckMin from "../icons/circle-check-min";
 import CircleCheck from "../icons/circle-check";
+import CreatedAt from "../created-at";
 import Trash from "../icons/trash";
 import Copy from "../icons/copy";
 
@@ -37,45 +38,53 @@ export default function TodoList({
               </p>
             </div>
             <div className="todo-card-footer">
-              {value.completed ? (
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="circle-check-button"
-                  onClick={() => {
-                    toggleCompleteTodo(value.id);
-                  }}
-                >
-                  <CircleCheck />
-                </Button>
-              ) : (
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => {
-                    toggleCompleteTodo(value.id);
-                  }}
-                >
-                  <CircleCheckMin />
-                </Button>
-              )}
+              <div className={value.completed ? "completed" : ""}>
+                <CreatedAt value={value.createdAt} />
+              </div>
+              <div>
+                {value.completed ? (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="todo-card-footer-button circle-check-button"
+                    onClick={() => {
+                      toggleCompleteTodo(value.id);
+                    }}
+                  >
+                    <CircleCheck />
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="todo-card-footer-button"
+                    onClick={() => {
+                      toggleCompleteTodo(value.id);
+                    }}
+                  >
+                    <CircleCheckMin />
+                  </Button>
+                )}
 
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => {
-                  copyTodo(value.id);
-                }}
-              >
-                <Copy />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => deleteTodo(value.id)}
-              >
-                <Trash />
-              </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="todo-card-footer-button"
+                  onClick={() => {
+                    copyTodo(value.id);
+                  }}
+                >
+                  <Copy />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="todo-card-footer-button"
+                  onClick={() => deleteTodo(value.id)}
+                >
+                  <Trash />
+                </Button>
+              </div>
             </div>
           </div>
         ))}

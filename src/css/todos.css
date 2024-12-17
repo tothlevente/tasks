@@ -48,10 +48,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.todo-card-footer > Button {
-  margin-right: 5px;
+.todo-card-footer-button {
+  margin-right: 3px;
+}
+
+.at {
+  font-size: small;
+  margin-left: 0.3rem;
 }
