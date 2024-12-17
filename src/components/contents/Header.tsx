@@ -4,6 +4,7 @@ import HeaderTitle from "../header-title";
 import { ModeToggle } from "../mode-toggle";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import Settings from "../settings";
 
 export default function Header({
   userInput,
@@ -36,6 +37,7 @@ export default function Header({
           >
             <CirclePlus />
           </Button>
+          <Settings />
           <ModeToggle />
         </div>
       </div>
