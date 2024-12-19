@@ -1,6 +1,6 @@
 # To-do list :scroll:
 
-In this to-do list web application you can create, edit and delete tasks.
+In this to-do list web application you can create, complete and delete tasks.
 
 ## Available scripts:
 
