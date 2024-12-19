@@ -74,6 +74,7 @@ export default function App() {
       <div className="site-wrapper">
         <Header
           list={todoList}
+          setList={setTodoList}
           userInput={userInput}
           setUserInput={setUserInput}
           addTodo={addTodo}

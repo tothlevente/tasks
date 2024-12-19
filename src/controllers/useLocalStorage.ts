@@ -32,3 +32,7 @@ export const setLocalStorage = (
 export const updateLocalStorage = (todos: TodoProps[]) => {
   localStorage.setItem(key, JSON.stringify(todos));
 };
+
+export const deleteLocalStorage = () => {
+  localStorage.removeItem(key);
+};

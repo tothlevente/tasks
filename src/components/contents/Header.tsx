@@ -9,11 +9,13 @@ import { Input } from "../ui/input";
 
 export default function Header({
   list,
+  setList,
   userInput,
   setUserInput,
   addTodo,
 }: {
   list: TodoProps[];
+  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
   userInput: string;
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
   addTodo: () => void;
@@ -40,7 +42,10 @@ export default function Header({
           >
             <CirclePlus />
           </Button>
-          <Settings list={list} />
+          <Settings
+            list={list}
+            setList={setList}
+          />
           <ModeToggle />
         </div>
       </div>
