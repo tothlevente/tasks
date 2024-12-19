@@ -5,11 +5,7 @@ export default function TodoListNoContent() {
         <b>There is no any content yet.</b>
       </p>
       <p>Please add some content first.</p>
-      <p>Your content not saved to your browser currently!</p>
-      <p>
-        If you want to save your content please turn on this feature in the
-        settings.
-      </p>
+      <p className="delete">Your content will saved to your browser!</p>
     </div>
   );
 }
