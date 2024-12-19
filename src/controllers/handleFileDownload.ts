@@ -18,7 +18,7 @@ export default function handleFileDownload(value: TodoProps[]) {
     type: "text/plain",
   });
   element.href = URL.createObjectURL(file);
-  element.download = "myFile.txt";
+  element.download = "myTodoListFile.txt";
   document.body.appendChild(element);
   element.click();
 }
