@@ -1,27 +1,112 @@
-@import "header.css";
-@import "footer.css";
-@import "list.css";
+@import url("header.css");
+@import url("footer.css");
+@import url("todos.css");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "JosefinSans";
+  src: url("/src/fonts/JosefinSans.ttf") format("truetype");
+  style: "normal";
+  weight: "100 900";
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  background-color: #f2f2f2;
-  color: #313131;
+@layer base {
+  :root {
+    --background: 0 0% 96.1%;
+    --foreground: 0 0% 3.9%;
+    --card: #e5e5e5;
+    --card-foreground: 0 0% 3.9%;
+    --card-border-block-color: 0 0% 89.8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --button-background: #262626;
+    --check-button-foreground: #059669;
+    --check-button-background: #a7f3d0;
+    --check-completed: #a3a3a3;
+    --delete: #ef4444;
+  }
+
+  .dark {
+    --background: 240 3.7% 15.9%;
+    --foreground: 0 0% 98%;
+    --card: #404040;
+    --card-foreground: 0 0% 98%;
+    --card-border-block-color: 37.7 92.1% 50.2%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --button-background: #d4d4d4;
+    --check-button-foreground: #86efac;
+    --check-button-background: #404040;
+    --check-completed: #a3a3a3;
+    --delete: #f87171;
+  }
 }
 
-.site-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "JosefinSans", sans-serif;
+    font-size: medium;
+    line-height: 1.8;
+  }
 
-main {
-  flex: 1;
+  .site-wrapper {
+    @media only screen and (min-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  }
+
+  .circle-check-button {
+    color: var(--check-button-foreground) !important;
+    background-color: var(--check-button-background) !important;
+  }
+
+  .delete {
+    color: var(--delete);
+  }
 }

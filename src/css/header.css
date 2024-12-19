@@ -1,16 +1,61 @@
 .header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 24px;
+  align-items: center;
+  margin: 20px;
+
+  @media only screen and (max-width: 800px) {
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+  }
 }
 
-.logo {
+.header-title {
   display: flex;
-  gap: 5px;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 10px;
+  }
 }
 
-.logo > h1 {
-  font-size: 25px;
+.header-title > p {
   font-weight: bold;
+  font-size: larger;
+}
+
+.header-container {
+  display: flex;
+
+  @media only screen and (max-width: 800px) {
+    display: grid;
+    justify-items: center;
+  }
+}
+
+.header-min-container {
+  @media only screen and (max-width: 800px) {
+    margin-top: 10px;
+  }
+}
+
+.header-container > Input {
+  width: fit-content;
+  min-width: 500px;
+  margin-right: 5px;
+
+  @media only screen and (max-width: 800px) {
+    min-width: 500px;
+
+    @media only screen and (max-width: 520px) {
+      min-width: 350px;
+
+      @media only screen and (max-width: 370px) {
+        min-width: auto;
+      }
+    }
+  }
 }
