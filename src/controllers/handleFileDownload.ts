@@ -13,8 +13,6 @@ export default function handleFileDownload(value: TodoProps[]) {
   let result = "";
 
   for (let i = 0; i < value.length; i++) {
-    console.log(value[i].title);
-
     result += value[i].title;
     if (i !== value.length - 1) {
       result += separator;
