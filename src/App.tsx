@@ -8,9 +8,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TodoProps } from "./interfaces/TodoProps";
 import { useEffect, useState } from "react";
 
-import TodoList from "./components/contents/TodoList";
-import Header from "./components/contents/Header";
-import Footer from "./components/contents/Footer";
+import Header from "./components/layouts/Header";
+import TodoList from "./components/layouts/TodoList";
+import Footer from "./components/layouts/Footer";
 
 export default function App() {
   const [userInput, setUserInput] = useState("");
@@ -85,7 +85,6 @@ export default function App() {
           copyTodo={copyTodo}
           deleteTodo={deleteTodo}
         />
-
         <Footer />
       </div>
     </ThemeProvider>
