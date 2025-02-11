@@ -2,6 +2,13 @@
 
 In this to-do list web application you can create, complete and delete tasks.
 
+This application is available in the following languages:
+
+- English
+- Esperanto
+- Spanish
+- German
+
 ## Available scripts:
 
 In the project directory, you can run:

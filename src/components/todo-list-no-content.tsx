@@ -1,11 +1,15 @@
+import { useTranslation } from "react-i18next";
+
 export default function TodoListNoContent() {
+  const { t } = useTranslation();
+
   return (
     <div className="todo-list-no-content">
       <p>
-        <b>There is no any content yet.</b>
+        <b>{t("noContentTitle")}</b>
       </p>
-      <p>Please add some content first.</p>
-      <p className="delete">Your content will saved to your browser!</p>
+      <p>{t("noContentDescription")}</p>
+      <p className="check-red">{t("browserSavedContentWarn")}</p>
     </div>
   );
 }

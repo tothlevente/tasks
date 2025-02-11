@@ -2,19 +2,22 @@ import packageJson from "../../../package.json";
 
 import ExternalLink from "../icons/external-link";
 
+import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <div className="footer">
-      <p>This website is open source and licensed under MIT.</p>
+      <p>{t("footerLineLicensed")}</p>
+      <p>{t("footerLineNoCookies")}</p>
+      <p>{t("footerLineUseLocalStorage")}</p>
+      <p>{t("footerLineMoreInformation")}</p>
+      <p>{t("footerLineThankYou")}</p>
       <p>
-        This website is does not use cookies and collect data about you.
+        {t("footerLineCreatedBy")} | v{packageJson.version}
       </p>
-      <p>Only use local storage to save your to-do list.</p>
-      <p>For more information please visit the project repository.</p>
-      <p>Thank you for your visiting and intrest! 👍️</p>
-      <p>Created by Levente in 2024 | v{packageJson.version}</p>
       <div className="footer-link">
         <Button asChild>
           <a
@@ -23,7 +26,7 @@ export default function Footer() {
             style={{ marginRight: "8px" }}
           >
             <ExternalLink />
-            Repository
+            {t("footerRepositoryLink")}
           </a>
         </Button>
         <Button asChild>
@@ -33,7 +36,7 @@ export default function Footer() {
             style={{ marginRight: "8px" }}
           >
             <ExternalLink />
-            License
+            {t("footerLicenseLink")}
           </a>
         </Button>
       </div>

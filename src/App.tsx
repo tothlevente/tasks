@@ -5,11 +5,11 @@ import {
 } from "./controllers/useLocalStorage";
 
 import { ThemeProvider } from "@/components/theme-provider";
+import { Suspense, useEffect, useState } from "react";
 import { TodoProps } from "./interfaces/TodoProps";
-import { useEffect, useState } from "react";
 
-import Header from "./components/layouts/Header";
 import TodoList from "./components/layouts/TodoList";
+import Header from "./components/layouts/Header";
 import Footer from "./components/layouts/Footer";
 
 export default function App() {
@@ -67,26 +67,28 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider
-      defaultTheme="light"
-      storageKey="vite-ui-theme"
-    >
-      <div className="site-wrapper">
-        <Header
-          list={todoList}
-          setList={setTodoList}
-          userInput={userInput}
-          setUserInput={setUserInput}
-          addTodo={addTodo}
-        />
-        <TodoList
-          list={todoList}
-          toggleCompleteTodo={toggleCompleteTodo}
-          copyTodo={copyTodo}
-          deleteTodo={deleteTodo}
-        />
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <Suspense fallback="loading">
+      <ThemeProvider
+        defaultTheme="light"
+        storageKey="vite-ui-theme"
+      >
+        <div className="site-wrapper">
+          <Header
+            list={todoList}
+            setList={setTodoList}
+            userInput={userInput}
+            setUserInput={setUserInput}
+            addTodo={addTodo}
+          />
+          <TodoList
+            list={todoList}
+            toggleCompleteTodo={toggleCompleteTodo}
+            copyTodo={copyTodo}
+            deleteTodo={deleteTodo}
+          />
+          <Footer />
+        </div>
+      </ThemeProvider>
+    </Suspense>
   );
 }
