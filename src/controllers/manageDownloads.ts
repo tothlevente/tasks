@@ -8,7 +8,7 @@ import { TodoProps } from "@/interfaces/TodoProps";
  * The function creates a comma-separated string of the titles of the to-do items,
  * creates a Blob from the string, and triggers a download of the file named "myTodoListFile.txt".
  */
-export default function handleFileDownload(value: TodoProps[]) {
+const handleFileDownload = (value: TodoProps[]) => {
   const separator = ", ";
   let result = "";
 
@@ -28,4 +28,6 @@ export default function handleFileDownload(value: TodoProps[]) {
   element.download = "myTodoListFile.txt";
   document.body.appendChild(element);
   element.click();
-}
+};
+
+export { handleFileDownload };

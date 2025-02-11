@@ -14,13 +14,13 @@ import {
 
 import { CircleDotIcon, CircleIcon, LanguagesIcon } from "lucide-react";
 import { deleteLocalStorage } from "@/controllers/useLocalStorage";
+import { handleFileDownload } from "@/controllers/manageDownloads";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "@/constants";
 import { Button } from "./ui/button";
 import { useState } from "react";
 
-import handleFileDownload from "@/controllers/handleFileDownload";
 import CircleSettings from "./icons/circle-settings";
 import Download from "./icons/download";
 import Trash from "./icons/trash";
