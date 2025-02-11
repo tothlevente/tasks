@@ -1,15 +1,21 @@
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 import { deleteLocalStorage } from "@/controllers/useLocalStorage";
 import { TodoProps } from "@/interfaces/TodoProps";
+import { LanguagesIcon } from "lucide-react";
+import { LANGUAGES } from "@/constants";
 import { Button } from "./ui/button";
 
 import handleFileDownload from "@/controllers/handleFileDownload";
@@ -38,7 +44,25 @@ export default function Settings({
       <DropdownMenuContent className="w-56">
         <DropdownMenuLabel>Settings</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuSub>
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <LanguagesIcon />
+              <span>Language</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                {LANGUAGES.map((value, index) => (
+                  <DropdownMenuItem key={index}>
+                    {value.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
           <DropdownMenuItem
             disabled={list.length === 0}
             onClick={() => {
@@ -48,8 +72,6 @@ export default function Settings({
             <Download />
             <span>Download my content to this computer in text file</span>
           </DropdownMenuItem>
-        </DropdownMenuSub>
-        <DropdownMenuSub>
           <DropdownMenuItem
             disabled={list.length === 0}
             className="delete"
@@ -61,7 +83,7 @@ export default function Settings({
             <Trash />
             <span>Delete all contents in this browser</span>
           </DropdownMenuItem>
-        </DropdownMenuSub>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
