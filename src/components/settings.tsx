@@ -28,12 +28,12 @@ import {
 
 import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
 import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalStorage";
+import { uploadTodosFromJson } from "@/controllers/manageUploads";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "@/constants";
 import { Button } from "./ui/button";
-import { useState } from "react";
-
+import { useRef, useState } from "react";
 import CircleSettings from "./icons/circle-settings";
 
 export default function Settings({
@@ -45,7 +45,13 @@ export default function Settings({
 }) {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
 
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
   const { i18n, t } = useTranslation();
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
 
   const handleChangeLanguage = (language: string) => {
     setSelectedLanguage(language);
@@ -96,10 +102,17 @@ export default function Settings({
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
-                <DropdownMenuItem onClick={() => {}}>
+                <DropdownMenuItem onClick={handleUploadClick}>
                   <FilePlus2Icon />
                   <span>{t("uploadCompatibleFile")}</span>
                 </DropdownMenuItem>
+                <input
+                  type="file"
+                  accept="application/json"
+                  ref={fileInputRef}
+                  style={{ display: "none" }}
+                  onChange={(e) => uploadTodosFromJson(e, list, setList)}
+                />
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
