@@ -88,7 +88,7 @@ export default function Settings({
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <Download />
-              <span>Download</span>
+              <span>{t("downloadTitle")}</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">

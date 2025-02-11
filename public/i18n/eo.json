@@ -9,6 +9,7 @@
   "createdAt": "Kreita ĉe:",
   "settingsTitle": "Agordoj",
   "languageTitle": "Lingvo",
+  "downloadTitle": "Elŝutu",
   "downloadAllContentAsText": "Elŝutu mian enhavon al ĉi tiu komputilo kiel simplan tekstdosieron (.txt)",
   "downloadAllContentAsJson": "Elŝutu mian enhavon al ĉi tiu komputilo kiel JSON-dosieron (.json)",
   "deleteAllContent": "Forigu ĉiujn enhavojn en ĉi tiu retumilo",

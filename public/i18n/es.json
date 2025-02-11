@@ -9,6 +9,7 @@
   "createdAt": "Creado en:",
   "settingsTitle": "Ajustes",
   "languageTitle": "Idioma",
+  "downloadTitle": "Descargar",
   "downloadAllContentAsText": "Descargar mi contenido a este ordenador en un archivo de texto sin formato (.txt)",
   "downloadAllContentAsJson": "Descargar mi contenido a este ordenador en un archivo JSON (.json)",
   "deleteAllContent": "Eliminar todo el contenido en este navegador.",

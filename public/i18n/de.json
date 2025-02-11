@@ -9,6 +9,7 @@
   "createdAt": "Erstellt am:",
   "settingsTitle": "Einstellungen",
   "languageTitle": "Sprache",
+  "downloadTitle": "Herunterladen",
   "downloadAllContentAsText": "Lade meinen Inhalt als normale Textdatei (.txt) auf diesen Computer herunter",
   "downloadAllContentAsJson": "Lade meinen Inhalt als JSON-Datei (.json) auf diesen Computer herunter",
   "deleteAllContent": "Lösche alle Inhalte in diesem Browser.",

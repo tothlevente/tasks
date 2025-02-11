@@ -9,6 +9,7 @@
   "createdAt": "Created at:",
   "settingsTitle": "Settings",
   "languageTitle": "Language",
+  "downloadTitle": "Download",
   "downloadAllContentAsText": "Download my content to this computer in regular text file (.txt)",
   "downloadAllContentAsJson": "Download my content to this computer in JSON file (.json)",
   "deleteAllContent": "Delete all contents in this browser",
