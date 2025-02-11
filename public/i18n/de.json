@@ -1,7 +1,7 @@
 {
   "noContentTitle": "Noch ist kein Inhalt vorhanden.",
   "noContentDescription": "Bitte füge zuerst etwas Inhalt hinzu.",
-  "browserSavedContentWarn": "Dein Inhalt wird in deinem Browser gespeichert!",
+  "browserSavedContentWarn": "Aus Sicherheitsgründen wird davon abgeraten, diese Anwendung auf einem öffentlichen oder gemeinsam genutzten Computer und Browser zu verwenden. Deine Notizen könnten für andere sichtbar sein.",
   "newContentInput": "Füge deine Aufgabe hier hinzu. Klicke auf Speichern, wenn du fertig bist.",
   "lightThemeText": "Hell",
   "darkThemeText": "Dunkel",

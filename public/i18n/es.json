@@ -1,7 +1,7 @@
 {
   "noContentTitle": "Aún no hay contenido.",
   "noContentDescription": "Por favor, añade contenido primero.",
-  "browserSavedContentWarn": "¡Tu contenido se guardará en tu navegador!",
+  "browserSavedContentWarn": "Por razones de seguridad, no se recomienda usar esta aplicación en un ordenador y navegador públicos o compartidos. Tus notas podrían ser visibles para otros.",
   "newContentInput": "Añade tu tarea aquí. Haz clic en guardar cuando hayas terminado.",
   "lightThemeText": "Claro",
   "darkThemeText": "Oscuro",

@@ -107,6 +107,8 @@
   }
 
   .check-red {
+    width: 50%;
+    text-align: center;
     color: var(--check-red);
   }
 }

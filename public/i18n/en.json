@@ -1,7 +1,7 @@
 {
   "noContentTitle": "There is no any content yet.",
   "noContentDescription": "Please add some content first.",
-  "browserSavedContentWarn": "Your content will saved to your browser!",
+  "browserSavedContentWarn": "For security reasons, it is not recommended to use this application on a public or shared computer and browser. Your notes may be visible to others.",
   "newContentInput": "Add your todo here. Click save when you're done.",
   "lightThemeText": "Light",
   "darkThemeText": "Dark",
