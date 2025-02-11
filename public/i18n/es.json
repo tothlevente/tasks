@@ -1,0 +1,22 @@
+{
+  "noContentTitle": "Aún no hay contenido.",
+  "noContentDescription": "Por favor, añade contenido primero.",
+  "browserSavedContentWarn": "¡Tu contenido se guardará en tu navegador!",
+  "newContentInput": "Añade tu tarea aquí. Haz clic en guardar cuando hayas terminado.",
+  "lightThemeText": "Claro",
+  "darkThemeText": "Oscuro",
+  "systemThemeText": "Sistema",
+  "createdAt": "Creado en:",
+  "settingsTitle": "Ajustes",
+  "languageTitle": "Idioma",
+  "downloadAllContent": "Descarga mi contenido a este ordenador en un archivo de texto.",
+  "deleteAllContent": "Eliminar todo el contenido en este navegador.",
+  "footerLineLicensed": "Este sitio web es de código abierto y tiene licencia MIT.",
+  "footerLineNoCookies": "Este sitio web no utiliza cookies ni recopila datos sobre ti.",
+  "footerLineUseLocalStorage": "Solo se utiliza el almacenamiento local para guardar tu lista de tareas.",
+  "footerLineMoreInformation": "Para más información, visita el repositorio del proyecto.",
+  "footerLineThankYou": "¡Gracias por tu visita e interés! 👍️",
+  "footerLineCreatedBy": "Creado por Levente en 2024 - 2025",
+  "footerRepositoryLink": "Repositorio",
+  "footerLicenseLink": "Licencia"
+}
