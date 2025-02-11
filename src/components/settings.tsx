@@ -15,12 +15,15 @@ import {
 import {
   CircleDotIcon,
   CircleIcon,
+  DownloadIcon,
   FileJson2Icon,
+  FilePlus2Icon,
   FileType2Icon,
   FileX2Icon,
   FileXIcon,
   LanguagesIcon,
   Trash2Icon,
+  UploadIcon,
 } from "lucide-react";
 
 import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
@@ -32,7 +35,6 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 
 import CircleSettings from "./icons/circle-settings";
-import Download from "./icons/download";
 
 export default function Settings({
   list,
@@ -56,7 +58,7 @@ export default function Settings({
         <Button
           variant="outline"
           size="icon"
-          style={{ marginRight: "5px" }}
+          className="mr-[5px]"
         >
           <CircleSettings />
         </Button>
@@ -89,7 +91,24 @@ export default function Settings({
         <DropdownMenuGroup>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
-              <Download />
+              <UploadIcon />
+              <span>{t("uploadTitle")}</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="w-48">
+                <DropdownMenuItem onClick={() => {}}>
+                  <FilePlus2Icon />
+                  <span>{t("uploadCompatibleFile")}</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <DownloadIcon />
               <span>{t("downloadTitle")}</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>

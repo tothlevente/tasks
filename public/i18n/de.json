@@ -9,6 +9,8 @@
   "createdAt": "Erstellt am:",
   "settingsTitle": "Einstellungen",
   "languageTitle": "Sprache",
+  "uploadTitle": "Hochladen",
+  "uploadCompatibleFile": "Kompatiblen Inhalt aus einer JSON-Datei (.json) hochladen",
   "downloadTitle": "Herunterladen",
   "downloadAllContentAsText": "Lade meinen Inhalt als normale Textdatei (.txt) auf diesen Computer herunter",
   "downloadAllContentAsJson": "Lade meinen Inhalt als JSON-Datei (.json) auf diesen Computer herunter",
