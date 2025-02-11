@@ -12,12 +12,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import { CircleDotIcon, CircleIcon, LanguagesIcon } from "lucide-react";
 import { deleteLocalStorage } from "@/controllers/useLocalStorage";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { useTranslation } from "react-i18next";
-import { LanguagesIcon } from "lucide-react";
 import { LANGUAGES } from "@/constants";
 import { Button } from "./ui/button";
+import { useState } from "react";
 
 import handleFileDownload from "@/controllers/handleFileDownload";
 import CircleSettings from "./icons/circle-settings";
@@ -31,7 +32,14 @@ export default function Settings({
   list: TodoProps[];
   setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
 }) {
-  const { t } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+
+  const { i18n, t } = useTranslation();
+
+  const handleChangeLanguage = (language: string) => {
+    setSelectedLanguage(language);
+    i18n.changeLanguage(language);
+  };
 
   return (
     <DropdownMenu>
@@ -56,7 +64,13 @@ export default function Settings({
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 {LANGUAGES.map((value, index) => (
-                  <DropdownMenuItem key={index}>{value.label}</DropdownMenuItem>
+                  <DropdownMenuItem
+                    key={index}
+                    onClick={() => handleChangeLanguage(value.code)}
+                  >
+                    {selectedLanguage === value.code ? <CircleDotIcon /> : <CircleIcon />}
+                    {value.label}
+                  </DropdownMenuItem>
                 ))}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
