@@ -14,6 +14,7 @@ import {
 
 import { deleteLocalStorage } from "@/controllers/useLocalStorage";
 import { TodoProps } from "@/interfaces/TodoProps";
+import { useTranslation } from "react-i18next";
 import { LanguagesIcon } from "lucide-react";
 import { LANGUAGES } from "@/constants";
 import { Button } from "./ui/button";
@@ -30,6 +31,8 @@ export default function Settings({
   list: TodoProps[];
   setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
 }) {
+  const { t } = useTranslation();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -42,20 +45,18 @@ export default function Settings({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>Settings</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("settingsTitle")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <LanguagesIcon />
-              <span>Language</span>
+              <span>{t("languageTitle")}</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 {LANGUAGES.map((value, index) => (
-                  <DropdownMenuItem key={index}>
-                    {value.label}
-                  </DropdownMenuItem>
+                  <DropdownMenuItem key={index}>{value.label}</DropdownMenuItem>
                 ))}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
@@ -70,7 +71,7 @@ export default function Settings({
             }}
           >
             <Download />
-            <span>Download my content to this computer in text file</span>
+            <span>{t("downloadAllContent")}</span>
           </DropdownMenuItem>
           <DropdownMenuItem
             disabled={list.length === 0}
@@ -81,7 +82,7 @@ export default function Settings({
             }}
           >
             <Trash />
-            <span>Delete all contents in this browser</span>
+            <span>{t("deleteAllContent")}</span>
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
