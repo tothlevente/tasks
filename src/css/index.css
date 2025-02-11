@@ -45,7 +45,7 @@
     --check-button-foreground: #059669;
     --check-button-background: #a7f3d0;
     --check-completed: #a3a3a3;
-    --delete: #ef4444;
+    --check-red: #ef4444;
   }
 
   .dark {
@@ -78,7 +78,7 @@
     --check-button-foreground: #86efac;
     --check-button-background: #404040;
     --check-completed: #a3a3a3;
-    --delete: #f87171;
+    --check-red: #f87171;
   }
 }
 
@@ -106,7 +106,7 @@
     background-color: var(--check-button-background) !important;
   }
 
-  .delete {
-    color: var(--delete);
+  .check-red {
+    color: var(--check-red);
   }
 }
