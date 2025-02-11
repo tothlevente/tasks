@@ -12,9 +12,16 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { CircleDotIcon, CircleIcon, LanguagesIcon } from "lucide-react";
+import {
+  CircleDotIcon,
+  CircleIcon,
+  FileJson2Icon,
+  FileType2Icon,
+  LanguagesIcon,
+} from "lucide-react";
+
+import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
 import { deleteLocalStorage } from "@/controllers/useLocalStorage";
-import { handleFileDownload } from "@/controllers/manageDownloads";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "@/constants";
@@ -78,15 +85,37 @@ export default function Settings({
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem
-            disabled={list.length === 0}
-            onClick={() => {
-              handleFileDownload(list);
-            }}
-          >
-            <Download />
-            <span>{t("downloadAllContent")}</span>
-          </DropdownMenuItem>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <Download />
+              <span>Download</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="w-48">
+                <DropdownMenuItem
+                  disabled={list.length === 0}
+                  onClick={() => {
+                    downloadTodosAsText(list);
+                  }}
+                >
+                  <FileType2Icon />
+                  <span>{t("downloadAllContentAsText")}</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  disabled={list.length === 0}
+                  onClick={() => {
+                    downloadTodosAsJson(list);
+                  }}
+                >
+                  <FileJson2Icon />
+                  <span>{t("downloadAllContentAsJson")}</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
           <DropdownMenuItem
             disabled={list.length === 0}
             className="delete"
