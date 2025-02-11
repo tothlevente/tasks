@@ -17,11 +17,14 @@ import {
   CircleIcon,
   FileJson2Icon,
   FileType2Icon,
+  FileX2Icon,
+  FileXIcon,
   LanguagesIcon,
+  Trash2Icon,
 } from "lucide-react";
 
 import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
-import { deleteLocalStorage } from "@/controllers/useLocalStorage";
+import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalStorage";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "@/constants";
@@ -30,7 +33,6 @@ import { useState } from "react";
 
 import CircleSettings from "./icons/circle-settings";
 import Download from "./icons/download";
-import Trash from "./icons/trash";
 
 export default function Settings({
   list,
@@ -116,17 +118,40 @@ export default function Settings({
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem
-            disabled={list.length === 0}
-            className="delete"
-            onClick={() => {
-              setList([]);
-              deleteLocalStorage();
-            }}
-          >
-            <Trash />
-            <span>{t("deleteAllContent")}</span>
-          </DropdownMenuItem>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <Trash2Icon />
+              <span>{t("deleteTitle")}</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="w-48">
+                <DropdownMenuItem
+                  disabled={list.filter((todo) => todo.completed).length === 0}
+                  className="delete"
+                  onClick={() => {
+                    const updatedList = list.filter((todo) => !todo.completed);
+
+                    setList(updatedList);
+                    updateLocalStorage(updatedList);
+                  }}
+                >
+                  <FileXIcon />
+                  <span>{t("deleteCompletedContent")}</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  disabled={list.length === 0}
+                  className="delete"
+                  onClick={() => {
+                    setList([]);
+                    deleteLocalStorage();
+                  }}
+                >
+                  <FileX2Icon />
+                  <span>{t("deleteAllContent")}</span>
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
