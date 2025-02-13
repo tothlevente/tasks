@@ -4,13 +4,13 @@ import {
   updateLocalStorage,
 } from "./controllers/useLocalStorage";
 
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import { Suspense, useEffect, useState } from "react";
 import { TodoProps } from "./interfaces/TodoProps";
 
-import TodoList from "./components/layouts/TodoList";
-import Header from "./components/layouts/Header";
-import Footer from "./components/layouts/Footer";
+import TodoList from "./components/todos/TodoList";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 export default function App() {
   const [userInput, setUserInput] = useState("");

@@ -1,10 +1,10 @@
-import ContentInput from "../ContentInput";
-import HeaderTitle from "../HeaderTitle";
-import Settings from "../Settings";
+import ContentInput from "./ContentInput";
+import HeaderTitle from "./HeaderTitle";
+import Settings from "../settings/Settings";
 
 import { TodoProps } from "@/interfaces/TodoProps";
+import { ModeToggle } from "../themes/ModeToggle";
 import { CirclePlusIcon } from "lucide-react";
-import { ModeToggle } from "../ModeToggle";
 import { Button } from "../ui/button";
 
 export default function Header({

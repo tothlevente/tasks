@@ -1,5 +1,5 @@
-import TodoListNoContent from "../TodoListNoContent";
-import TodoListContent from "../TodoListContent";
+import TodoListNoContent from "./TodoListNoContent";
+import TodoListContent from "./TodoListContent";
 
 import { TodoProps } from "@/interfaces/TodoProps";
 

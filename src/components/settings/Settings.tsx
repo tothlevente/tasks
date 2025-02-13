@@ -30,7 +30,7 @@ import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalSt
 import { TodoProps } from "@/interfaces/TodoProps";
 import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "@/constants";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useState } from "react";
 
 export default function Settings({

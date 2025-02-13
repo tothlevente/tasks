@@ -1,6 +1,6 @@
 import { CircleCheckBigIcon, CircleCheckIcon, CopyIcon, TrashIcon } from "lucide-react";
 import { TodoProps } from "@/interfaces/TodoProps";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 import CreatedAt from "./CreatedAt";
 
