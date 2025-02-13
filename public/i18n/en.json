@@ -9,8 +9,6 @@
   "createdAt": "Created at:",
   "settingsTitle": "Settings",
   "languageTitle": "Language",
-  "uploadTitle": "Upload",
-  "uploadCompatibleFile": "Upload compatible content from JSON file (.json)",
   "downloadTitle": "Download",
   "downloadAllContentAsText": "Download my content to this computer in regular text file (.txt)",
   "downloadAllContentAsJson": "Download my content to this computer in JSON file (.json)",

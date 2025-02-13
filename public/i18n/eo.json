@@ -9,8 +9,6 @@
   "createdAt": "Kreita ĉe:",
   "settingsTitle": "Agordoj",
   "languageTitle": "Lingvo",
-  "uploadTitle": "Alŝuti",
-  "uploadCompatibleFile": "Alŝuti kongruan enhavon el JSON-dosiero (.json)",
   "downloadTitle": "Elŝutu",
   "downloadAllContentAsText": "Elŝutu mian enhavon al ĉi tiu komputilo kiel simplan tekstdosieron (.txt)",
   "downloadAllContentAsJson": "Elŝutu mian enhavon al ĉi tiu komputilo kiel JSON-dosieron (.json)",
