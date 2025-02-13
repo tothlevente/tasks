@@ -1,12 +1,11 @@
-import CirclePlus from "../icons/circle-plus";
-import HeaderTitle from "../header-title";
-import Settings from "../settings";
+import ContentInput from "./ContentInput";
+import HeaderTitle from "./HeaderTitle";
+import Settings from "../settings/Settings";
 
 import { TodoProps } from "@/interfaces/TodoProps";
-import { useTranslation } from "react-i18next";
-import { ModeToggle } from "../mode-toggle";
+import { ModeToggle } from "../themes/ModeToggle";
+import { CirclePlusIcon } from "lucide-react";
 import { Button } from "../ui/button";
-import { Input } from "../ui/input";
 
 export default function Header({
   list,
@@ -21,19 +20,13 @@ export default function Header({
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
   addTodo: () => void;
 }) {
-  const { t } = useTranslation();
-
   return (
     <div className="header">
       <HeaderTitle />
       <div className="header-container">
-        <Input
-          type="text"
-          placeholder={t("newContentInput")}
-          value={userInput}
-          onChange={(item) => {
-            setUserInput(item.target.value);
-          }}
+        <ContentInput
+          userInput={userInput}
+          setUserInput={setUserInput}
         />
         <div className="header-min-container">
           <Button
@@ -43,7 +36,7 @@ export default function Header({
             onClick={() => addTodo()}
             disabled={userInput.length === 0}
           >
-            <CirclePlus />
+            <CirclePlusIcon />
           </Button>
           <Settings
             list={list}

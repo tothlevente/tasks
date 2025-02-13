@@ -1,12 +1,8 @@
+import { CircleCheckBigIcon, CircleCheckIcon, CopyIcon, TrashIcon } from "lucide-react";
 import { TodoProps } from "@/interfaces/TodoProps";
+import { Button } from "../ui/button";
 
-import { Button } from "./ui/button";
-
-import CircleCheckMin from "./icons/circle-check-min";
-import CircleCheck from "./icons/circle-check";
-import CreatedAt from "./created-at";
-import Trash from "./icons/trash";
-import Copy from "./icons/copy";
+import CreatedAt from "./CreatedAt";
 
 export default function TodoListContent({
   list,
@@ -27,13 +23,7 @@ export default function TodoListContent({
           className="todo-card"
         >
           <div className="todo-card-header">
-            <p
-              className={
-                value.completed
-                  ? "todo-card-title completed"
-                  : "todo-card-title"
-              }
-            >
+            <p className={value.completed ? "todo-card-title completed" : "todo-card-title"}>
               {value.title}
             </p>
           </div>
@@ -51,7 +41,7 @@ export default function TodoListContent({
                     toggleCompleteTodo(value.id);
                   }}
                 >
-                  <CircleCheck />
+                  <CircleCheckBigIcon />
                 </Button>
               ) : (
                 <Button
@@ -62,7 +52,7 @@ export default function TodoListContent({
                     toggleCompleteTodo(value.id);
                   }}
                 >
-                  <CircleCheckMin />
+                  <CircleCheckIcon />
                 </Button>
               )}
 
@@ -74,7 +64,7 @@ export default function TodoListContent({
                   copyTodo(value.id);
                 }}
               >
-                <Copy />
+                <CopyIcon />
               </Button>
               <Button
                 variant="outline"
@@ -84,7 +74,7 @@ export default function TodoListContent({
                   deleteTodo(value.id);
                 }}
               >
-                <Trash />
+                <TrashIcon />
               </Button>
             </div>
           </div>

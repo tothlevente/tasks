@@ -1,9 +1,8 @@
 import packageJson from "../../../package.json";
 
-import ExternalLink from "../icons/external-link";
-
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
+import { ExternalLinkIcon } from "lucide-react";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -25,7 +24,7 @@ export default function Footer() {
             target="_blank"
             style={{ marginRight: "8px" }}
           >
-            <ExternalLink />
+            <ExternalLinkIcon />
             {t("footerRepositoryLink")}
           </a>
         </Button>
@@ -35,7 +34,7 @@ export default function Footer() {
             target="_blank"
             style={{ marginRight: "8px" }}
           >
-            <ExternalLink />
+            <ExternalLinkIcon />
             {t("footerLicenseLink")}
           </a>
         </Button>

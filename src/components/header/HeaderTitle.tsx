@@ -1,9 +1,9 @@
-import NotepadText from "./icons/notepad-text";
+import { NotepadTextIcon } from "lucide-react";
 
 export default function HeaderTitle() {
   return (
     <div className="header-title">
-      <NotepadText />
+      <NotepadTextIcon />
       <p>To-do list</p>
     </div>
   );
