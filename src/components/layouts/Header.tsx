@@ -1,10 +1,10 @@
-import CirclePlus from "../icons/circle-plus";
-import ContentInput from "../content-input";
-import HeaderTitle from "../header-title";
-import Settings from "../settings";
+import ContentInput from "../ContentInput";
+import HeaderTitle from "../HeaderTitle";
+import Settings from "../Settings";
 
 import { TodoProps } from "@/interfaces/TodoProps";
-import { ModeToggle } from "../mode-toggle";
+import { CirclePlusIcon } from "lucide-react";
+import { ModeToggle } from "../ModeToggle";
 import { Button } from "../ui/button";
 
 export default function Header({
@@ -36,7 +36,7 @@ export default function Header({
             onClick={() => addTodo()}
             disabled={userInput.length === 0}
           >
-            <CirclePlus />
+            <CirclePlusIcon />
           </Button>
           <Settings
             list={list}

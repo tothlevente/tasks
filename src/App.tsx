@@ -4,7 +4,7 @@ import {
   updateLocalStorage,
 } from "./controllers/useLocalStorage";
 
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { Suspense, useEffect, useState } from "react";
 import { TodoProps } from "./interfaces/TodoProps";
 

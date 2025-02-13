@@ -21,6 +21,7 @@ import {
   FileX2Icon,
   FileXIcon,
   LanguagesIcon,
+  SettingsIcon,
   Trash2Icon,
 } from "lucide-react";
 
@@ -31,7 +32,6 @@ import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "@/constants";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import CircleSettings from "./icons/circle-settings";
 
 export default function Settings({
   list,
@@ -57,7 +57,7 @@ export default function Settings({
           size="icon"
           className="mr-[5px]"
         >
-          <CircleSettings />
+          <SettingsIcon />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
