@@ -1,4 +1,5 @@
 import { CircleCheckBigIcon, CircleCheckIcon, CopyIcon, TrashIcon } from "lucide-react";
+import { PaletteDropdown } from "../palette/PaletteDropdown";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { Button } from "../ui/button";
 
@@ -55,7 +56,7 @@ export default function TodoListContent({
                   <CircleCheckIcon />
                 </Button>
               )}
-
+              <PaletteDropdown />
               <Button
                 variant="outline"
                 size="icon"
