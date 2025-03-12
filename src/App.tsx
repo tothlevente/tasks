@@ -25,12 +25,14 @@ export default function App() {
     const title: string = userInput;
     const completed: boolean = false;
     const createdAt: Date = new Date();
+    const color = "#737373";
 
     const todos = [
       ...todoList,
       {
         id: id,
         title: title,
+        color: color,
         completed: completed,
         createdAt: createdAt,
       },
