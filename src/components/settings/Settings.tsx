@@ -21,6 +21,8 @@ import {
   FileX2Icon,
   FileXIcon,
   LanguagesIcon,
+  PaintBucketIcon,
+  PaletteIcon,
   SettingsIcon,
   Trash2Icon,
 } from "lucide-react";
@@ -28,8 +30,9 @@ import {
 import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
 import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalStorage";
 import { TodoProps } from "@/interfaces/TodoProps";
-import { useTranslation } from "react-i18next";
 import { LANGUAGES } from "@/constants/languages";
+import { useTranslation } from "react-i18next";
+import { COLORS } from "@/constants/colors";
 import { Button } from "../ui/button";
 import { useState } from "react";
 
@@ -111,6 +114,28 @@ export default function Settings({
                   <FileJson2Icon />
                   <span>{t("downloadAllContentAsJson")}</span>
                 </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <PaletteIcon />
+              <span>Default color</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="w-48">
+                {COLORS.map((color, index) => (
+                  <DropdownMenuItem
+                    key={index}
+                    onClick={() => {}}
+                  >
+                    <PaintBucketIcon color={color.colors.default} />
+                    <span style={{ textTransform: "uppercase" }}>{color.name}</span>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
