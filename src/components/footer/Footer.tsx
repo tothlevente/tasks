@@ -1,10 +1,10 @@
-import packageJson from "../../../package.json";
-
+import { ExternalLinkIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
-import { ExternalLinkIcon } from "lucide-react";
 
-export default function Footer() {
+import packageJson from "../../../package.json";
+
+export const Footer = () => {
   const { t } = useTranslation();
 
   return (
@@ -51,4 +51,4 @@ export default function Footer() {
       </a>
     </div>
   );
-}
+};

@@ -2,13 +2,6 @@
 
 In this to-do list web application you can create, complete and delete tasks.
 
-This application is available in the following languages:
-
-- English
-- Esperanto
-- Spanish
-- German
-
 ## Available scripts:
 
 In the project directory, you can run:
@@ -18,6 +11,15 @@ In the project directory, you can run:
 - `npm run preview`
 - `npm run build`
 
+## Languages:
+
+This application is available in the following languages:
+
+- English
+- Esperanto
+- Spanish
+- German
+
 ## Used external sources:
 
 - [Shadcn UI](https://ui.shadcn.com/)
@@ -25,6 +27,12 @@ In the project directory, you can run:
 - [Google Fonts](https://fonts.google.com/specimen/Josefin+Sans)
 - [GeeksForGeeks](https://www.geeksforgeeks.org/create-todo-app-using-reactjs)
 - [Josefin Sans Font](https://github.com/googlefonts/josefinsans)
+
+## Disclaimer
+
+The primary purpose of the project is learning and demonstration.
+
+This implies that the code might not be production-ready, thoroughly tested, or optimized for all scenarios.
 
 ## License:
 

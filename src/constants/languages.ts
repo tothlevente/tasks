@@ -7,8 +7,8 @@
  * @property {string} code - The ISO 639-1 code of the language.
  */
 export const LANGUAGES = [
-  { label: "English", code: "en" },
-  { label: "Esperanto", code: "eo" },
-  { label: "Spanish", code: "es" },
-  { label: "German", code: "de" },
+  { label: "english", code: "en" },
+  { label: "esperanto", code: "eo" },
+  { label: "spanish", code: "es" },
+  { label: "german", code: "de" },
 ];

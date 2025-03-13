@@ -10,25 +10,25 @@ const key = "todos";
  *
  * @returns {any[]} The parsed JSON object if the item exists, otherwise an empty array.
  */
-export const getLocalStorage = () => {
-  return localStorage.getItem(key) !== null
-    ? JSON.parse(localStorage.getItem(key)!)
-    : [];
+export const getTodos = () => {
+  return localStorage.getItem(key) !== null ? JSON.parse(localStorage.getItem(key)!) : [];
 };
 
 /**
  * Sets the local storage with the provided todo items and a new todo item.
  *
- * @param {TodoProps[]} todos - The existing list of todo items.
- * @param {number} id - The unique identifier for the new todo item.
- * @param {string} title - The title of the new todo item.
- * @param {boolean} completed - The completion status of the new todo item.
- * @param {Date} createdAt - The creation date of the new todo item.
+ * @param todos - The current list of todo items.
+ * @param id - The unique identifier for the new todo item.
+ * @param title - The title of the new todo item.
+ * @param color - The color associated with the new todo item.
+ * @param completed - The completion status of the new todo item.
+ * @param createdAt - The creation date of the new todo item.
  */
-export const setLocalStorage = (
+export const createTodo = (
   todos: TodoProps[],
   id: number,
   title: string,
+  color: string,
   completed: boolean,
   createdAt: Date
 ) => {
@@ -39,6 +39,7 @@ export const setLocalStorage = (
       {
         id: id,
         title: title,
+        color: color,
         completed: completed,
         createdAt: createdAt,
       },
@@ -51,7 +52,7 @@ export const setLocalStorage = (
  *
  * @param {TodoProps[]} todos - The array of todo items to be stored in local storage.
  */
-export const updateLocalStorage = (todos: TodoProps[]) => {
+export const updateTodos = (todos: TodoProps[]) => {
   localStorage.setItem(key, JSON.stringify(todos));
 };
 
@@ -60,6 +61,6 @@ export const updateLocalStorage = (todos: TodoProps[]) => {
  *
  * @param {string} key - The key of the item to be removed from local storage.
  */
-export const deleteLocalStorage = () => {
+export const deleteTodos = () => {
   localStorage.removeItem(key);
 };

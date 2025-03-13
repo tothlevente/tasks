@@ -1,31 +1,17 @@
-import TodoListNoContent from "./TodoListNoContent";
-import TodoListContent from "./TodoListContent";
+import { useTodoList } from "@/context/TodoListContext";
+import { getTodos } from "@/services/todoService";
+import { NoContent } from "./content/NoContent";
+import { Content } from "./content/Content";
+import { useEffect } from "react";
 
-import { TodoProps } from "@/interfaces/TodoProps";
+export const TodoList = () => {
+  const { todoList, setTodoList } = useTodoList();
 
-export default function TodoList({
-  list,
-  toggleCompleteTodo,
-  copyTodo,
-  deleteTodo,
-}: {
-  list: TodoProps[];
-  toggleCompleteTodo: (index: number) => void;
-  copyTodo: (index: number) => void;
-  deleteTodo: (key: number) => void;
-}) {
+  useEffect(() => {
+    setTodoList(getTodos());
+  }, [setTodoList]);
+
   return (
-    <div className="todo-list">
-      {list.length === 0 ? (
-        <TodoListNoContent />
-      ) : (
-        <TodoListContent
-          list={list}
-          toggleCompleteTodo={toggleCompleteTodo}
-          copyTodo={copyTodo}
-          deleteTodo={deleteTodo}
-        />
-      )}
-    </div>
+    <div className="todo-list">{todoList.length === 0 ? <NoContent /> : <Content />}</div>
   );
-}
+};

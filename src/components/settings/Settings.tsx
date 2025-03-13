@@ -21,32 +21,38 @@ import {
   FileX2Icon,
   FileXIcon,
   LanguagesIcon,
+  PaintBucketIcon,
+  PaletteIcon,
   SettingsIcon,
   Trash2Icon,
 } from "lucide-react";
 
-import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
-import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalStorage";
-import { TodoProps } from "@/interfaces/TodoProps";
+import { downloadTodosAsText, downloadTodosAsJson } from "@/services/downloadService";
+import { updateTodos, deleteTodos } from "@/services/todoService";
+import { useDefaultColor } from "@/context/DefaultColorContext";
+import { useTodoList } from "@/context/TodoListContext";
+import { useTheme } from "../themes/ThemeProvider";
+import { LANGUAGES } from "@/constants/languages";
 import { useTranslation } from "react-i18next";
-import { LANGUAGES } from "@/constants";
+import { COLORS } from "@/constants/colors";
 import { Button } from "../ui/button";
 import { useState } from "react";
 
-export default function Settings({
-  list,
-  setList,
-}: {
-  list: TodoProps[];
-  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
-}) {
+export const Settings = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
 
+  const { defaultColor, setDefaultColor } = useDefaultColor();
+  const { todoList, setTodoList } = useTodoList();
   const { i18n, t } = useTranslation();
+  const { theme } = useTheme();
 
   const handleChangeLanguage = (language: string) => {
     setSelectedLanguage(language);
     i18n.changeLanguage(language);
+  };
+
+  const handleChangeColor = (color: string) => {
+    setDefaultColor(color);
   };
 
   return (
@@ -77,7 +83,7 @@ export default function Settings({
                     onClick={() => handleChangeLanguage(value.code)}
                   >
                     {selectedLanguage === value.code ? <CircleDotIcon /> : <CircleIcon />}
-                    {value.label}
+                    {t(`${value.label}LanguageText`)}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuSubContent>
@@ -94,23 +100,56 @@ export default function Settings({
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
                 <DropdownMenuItem
-                  disabled={list.length === 0}
+                  disabled={todoList.length === 0}
                   onClick={() => {
-                    downloadTodosAsText(list);
+                    downloadTodosAsText(todoList);
                   }}
                 >
                   <FileType2Icon />
                   <span>{t("downloadAllContentAsText")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  disabled={list.length === 0}
+                  disabled={todoList.length === 0}
                   onClick={() => {
-                    downloadTodosAsJson(list);
+                    downloadTodosAsJson(todoList);
                   }}
                 >
                   <FileJson2Icon />
                   <span>{t("downloadAllContentAsJson")}</span>
                 </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <PaletteIcon />
+              <span>{t("defaultColor")}</span>
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent className="w-48">
+                {COLORS.map((color, index) => {
+                  const themeColor =
+                    theme === "light" ? color.colors.light : color.colors.dark;
+
+                  return (
+                    <DropdownMenuItem
+                      key={index}
+                      onClick={() => handleChangeColor(color.colors.default)}
+                      style={{
+                        backgroundColor:
+                          color.colors.default === defaultColor ? themeColor : "transparent",
+                      }}
+                    >
+                      <PaintBucketIcon color={color.colors.default} />
+                      <span style={{ textTransform: "capitalize" }}>
+                        {t(`${color.name}Color`)}
+                      </span>
+                    </DropdownMenuItem>
+                  );
+                })}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
@@ -125,24 +164,24 @@ export default function Settings({
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
                 <DropdownMenuItem
-                  disabled={list.filter((todo) => todo.completed).length === 0}
+                  disabled={todoList.filter((todo) => todo.completed).length === 0}
                   className="delete"
                   onClick={() => {
-                    const updatedList = list.filter((todo) => !todo.completed);
+                    const updatedList = todoList.filter((todo) => !todo.completed);
 
-                    setList(updatedList);
-                    updateLocalStorage(updatedList);
+                    setTodoList(updatedList);
+                    updateTodos(updatedList);
                   }}
                 >
                   <FileXIcon />
                   <span>{t("deleteCompletedContent")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  disabled={list.length === 0}
+                  disabled={todoList.length === 0}
                   className="delete"
                   onClick={() => {
-                    setList([]);
-                    deleteLocalStorage();
+                    setTodoList([]);
+                    deleteTodos();
                   }}
                 >
                   <FileX2Icon />
@@ -155,4 +194,4 @@ export default function Settings({
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};
