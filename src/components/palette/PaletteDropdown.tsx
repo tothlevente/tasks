@@ -20,6 +20,7 @@ export const PaletteDropdown = ({ id, changeTodoColor }: PaletteDropdownProps) =
   const colorDefaultRed = COLORS.find((color) => color.name === "red")!.colors.default;
   const colorDefaultBlue = COLORS.find((color) => color.name === "blue")!.colors.default;
   const colorDefaultGreen = COLORS.find((color) => color.name === "green")!.colors.default;
+  const colorDefaultPink = COLORS.find((color) => color.name === "pink")!.colors.default;
 
   const handleColorChange = (color: Colors) => {
     changeTodoColor(id, color.colors.default);
@@ -64,6 +65,11 @@ export const PaletteDropdown = ({ id, changeTodoColor }: PaletteDropdownProps) =
           onClick={() => handleColorChange(COLORS.find((color) => color.name === "green")!)}
         >
           <PaintBucketIcon color={colorDefaultGreen} />
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => handleColorChange(COLORS.find((color) => color.name === "pink")!)}
+        >
+          <PaintBucketIcon color={colorDefaultPink} />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
