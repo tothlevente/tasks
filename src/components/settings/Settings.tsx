@@ -44,12 +44,12 @@ interface SettingsProps {
   setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function Settings({
+export const Settings = ({
   list,
   setList,
   defaultColor,
   setDefaultColor,
-}: SettingsProps) {
+}: SettingsProps) => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
 
   const { theme } = useTheme();
@@ -203,4 +203,4 @@ export default function Settings({
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};

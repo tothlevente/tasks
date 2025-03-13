@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export default function TodoListNoContent() {
+export const TodoListNoContent = () => {
   const { t } = useTranslation();
 
   return (
@@ -12,4 +12,4 @@ export default function TodoListNoContent() {
       <p className="check-red">{t("browserSavedContentWarn")}</p>
     </div>
   );
-}
+};

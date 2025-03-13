@@ -1,10 +1,9 @@
-import ContentInput from "./ContentInput";
-import HeaderTitle from "./HeaderTitle";
-import Settings from "../settings/Settings";
-
 import { TodoProps } from "@/interfaces/TodoProps";
 import { ModeToggle } from "../themes/ModeToggle";
+import { Settings } from "../settings/Settings";
 import { CirclePlusIcon } from "lucide-react";
+import { ContentInput } from "./ContentInput";
+import { HeaderTitle } from "./HeaderTitle";
 import { Button } from "../ui/button";
 
 interface HeaderProps {
@@ -17,7 +16,7 @@ interface HeaderProps {
   setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function Header({
+export const Header = ({
   list,
   setList,
   userInput,
@@ -25,7 +24,7 @@ export default function Header({
   addTodo,
   defaultColor,
   setDefaultColor,
-}: HeaderProps) {
+}: HeaderProps) => {
   return (
     <div className="header">
       <HeaderTitle />
@@ -56,4 +55,4 @@ export default function Header({
       </div>
     </div>
   );
-}
+};

@@ -3,9 +3,8 @@ import { PaletteDropdown } from "../palette/PaletteDropdown";
 import { useTheme } from "../themes/ThemeProvider";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { COLORS } from "@/constants/colors";
+import { CreatedAt } from "./CreatedAt";
 import { Button } from "../ui/button";
-
-import CreatedAt from "./CreatedAt";
 
 interface TodoListContentProps {
   list: TodoProps[];
@@ -15,13 +14,13 @@ interface TodoListContentProps {
   changeTodoColor: (key: number, color: string) => void;
 }
 
-export default function TodoListContent({
+export const TodoListContent = ({
   list,
   toggleCompleteTodo,
   copyTodo,
   deleteTodo,
   changeTodoColor,
-}: TodoListContentProps) {
+}: TodoListContentProps) => {
   const { theme } = useTheme();
 
   return (
@@ -114,4 +113,4 @@ export default function TodoListContent({
       })}
     </div>
   );
-}
+};

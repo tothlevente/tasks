@@ -1,6 +1,5 @@
-import TodoListNoContent from "./TodoListNoContent";
-import TodoListContent from "./TodoListContent";
-
+import { TodoListNoContent } from "./TodoListNoContent";
+import { TodoListContent } from "./TodoListContent";
 import { TodoProps } from "@/interfaces/TodoProps";
 
 interface TodoListProps {
@@ -11,13 +10,13 @@ interface TodoListProps {
   changeTodoColor: (key: number, color: string) => void;
 }
 
-export default function TodoList({
+export const TodoList = ({
   list,
   toggleCompleteTodo,
   copyTodo,
   deleteTodo,
   changeTodoColor,
-}: TodoListProps) {
+}: TodoListProps) => {
   return (
     <div className="todo-list">
       {list.length === 0 ? (
@@ -33,4 +32,4 @@ export default function TodoList({
       )}
     </div>
   );
-}
+};

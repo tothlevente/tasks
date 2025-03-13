@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import moment from "moment";
 
-export default function CreatedAt({ value }: { value: Date }) {
+export const CreatedAt = ({ value }: { value: Date }) => {
   const { t } = useTranslation();
 
   return (
@@ -10,4 +10,4 @@ export default function CreatedAt({ value }: { value: Date }) {
       <b>{t("createdAt")}</b> {moment(value).format("LLL")}
     </p>
   );
-}
+};

@@ -1,12 +1,10 @@
 import { getTodos, createTodo, updateTodos } from "./services/todoService";
-
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
+import { TodoList } from "./components/todos/TodoList";
 import { Suspense, useEffect, useState } from "react";
+import { Header } from "./components/header/Header";
+import { Footer } from "./components/footer/Footer";
 import { TodoProps } from "./interfaces/TodoProps";
-
-import TodoList from "./components/todos/TodoList";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
 import { COLORS } from "./constants/colors";
 
 export default function App() {

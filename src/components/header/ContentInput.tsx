@@ -7,11 +7,7 @@ interface ContentInputProps {
   addTodo: () => void;
 }
 
-export default function ContentInput({
-  userInput,
-  setUserInput,
-  addTodo,
-}: ContentInputProps) {
+export const ContentInput = ({ userInput, setUserInput, addTodo }: ContentInputProps) => {
   const { t } = useTranslation();
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -31,4 +27,4 @@ export default function ContentInput({
       onKeyDown={handleKeyDown}
     />
   );
-}
+};
