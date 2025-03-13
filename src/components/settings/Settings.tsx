@@ -60,6 +60,10 @@ export default function Settings({
     i18n.changeLanguage(language);
   };
 
+  const handleChangeColor = (color: string) => {
+    setDefaultColor(color);
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -142,16 +146,14 @@ export default function Settings({
                   return (
                     <DropdownMenuItem
                       key={index}
-                      onClick={() => {
-                        setDefaultColor(color.colors.default);
-                      }}
+                      onClick={() => handleChangeColor(color.colors.default)}
                       style={{
                         backgroundColor:
                           color.colors.default === defaultColor ? themeColor : "transparent",
                       }}
                     >
                       <PaintBucketIcon color={color.colors.default} />
-                      <span style={{ textTransform: "uppercase" }}>
+                      <span style={{ textTransform: "capitalize" }}>
                         {t(`${color.name}Color`)}
                       </span>
                     </DropdownMenuItem>
