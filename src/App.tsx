@@ -7,6 +7,7 @@ import {
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import { Suspense, useEffect, useState } from "react";
 import { TodoProps } from "./interfaces/TodoProps";
+import { COLORS } from "./constants/colors";
 
 import TodoList from "./components/todos/TodoList";
 import Header from "./components/header/Header";
@@ -25,7 +26,7 @@ export default function App() {
     const title: string = userInput;
     const completed: boolean = false;
     const createdAt: Date = new Date();
-    const color = "#737373";
+    const color = COLORS.find((color) => color.name === "gray")!.colors.default;
 
     const todos = [
       ...todoList,
@@ -77,8 +78,6 @@ export default function App() {
     setTodoList(update);
     updateLocalStorage(update);
   }
-
-  console.log(todoList);
 
   return (
     <Suspense fallback="loading">
