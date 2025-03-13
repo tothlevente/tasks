@@ -1,17 +1,62 @@
 /**
- * An object containing color constants used throughout the application.
- * Each property represents a color name and its corresponding hex value.
- *
- * @property {string} gray - Hex code for gray color.
- * @property {string} yellow - Hex code for yellow color.
- * @property {string} red - Hex code for red color.
- * @property {string} blue - Hex code for blue color.
- * @property {string} green - Hex code for green color.
+ * Represents a color scheme with a name and variations of the color.
  */
-export const COLORS = {
-  gray: "#737373",
-  yellow: "#f59e0b",
-  red: "#ef4444",
-  blue: "#3b82f6",
-  green: "#22c55e",
-};
+export interface Colors {
+  name: string;
+  colors: {
+    default: string;
+    light: string;
+    dark: string;
+  };
+}
+
+export const COLORS: Colors[] = [
+  {
+    name: "gray",
+    colors: {
+      default: "#6b7280",
+      light: "#e5e7eb",
+      dark: "#374151",
+    },
+  },
+  {
+    name: "yellow",
+    colors: {
+      default: "#eab308",
+      light: "#fef08a",
+      dark: "#a16207",
+    },
+  },
+  {
+    name: "red",
+    colors: {
+      default: "#ef4444",
+      light: "#fecaca",
+      dark: "#b91c1c",
+    },
+  },
+  {
+    name: "blue",
+    colors: {
+      default: "#0ea5e9",
+      light: "#bae6fd",
+      dark: "#0369a1",
+    },
+  },
+  {
+    name: "green",
+    colors: {
+      default: "#22c55e",
+      light: "#bbf7d0",
+      dark: "#15803d",
+    },
+  },
+  {
+    name: "pink",
+    colors: {
+      default: "#ec4899",
+      light: "#fbcfe8",
+      dark: "#be185d",
+    },
+  },
+];
