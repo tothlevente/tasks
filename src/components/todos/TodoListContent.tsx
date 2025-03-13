@@ -32,12 +32,20 @@ export default function TodoListContent({
         const darkColor = COLORS.find((color) => color.colors.default === value.color)!
           .colors.dark;
 
+        const completedColor =
+          theme === "light"
+            ? COLORS.find((color) => color.name === "gray")!.colors.light
+            : COLORS.find((color) => color.name === "gray")!.colors.dark;
+
+        const themeColor = theme === "light" ? lightColor : darkColor;
+        const backgroundColor = value.completed ? completedColor : themeColor;
+
         return (
           <div
             key={index}
             className="todo-card"
             style={{
-              backgroundColor: theme === "light" ? lightColor : darkColor,
+              backgroundColor: backgroundColor,
             }}
           >
             <div className="todo-card-header">
