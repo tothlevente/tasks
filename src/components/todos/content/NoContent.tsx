@@ -1,13 +1,11 @@
 import { useTranslation } from "react-i18next";
 
-export const TodoListNoContent = () => {
+export const NoContent = () => {
   const { t } = useTranslation();
 
   return (
     <div className="todo-list-no-content">
-      <p>
-        <b>{t("noContentTitle")}</b>
-      </p>
+      <b>{t("noContentTitle")}</b>
       <p>{t("noContentDescription")}</p>
       <p className="check-red">{t("browserSavedContentWarn")}</p>
     </div>
