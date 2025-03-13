@@ -29,13 +29,13 @@ import {
 
 import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
 import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalStorage";
+import { useTheme } from "../themes/ThemeProvider";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { LANGUAGES } from "@/constants/languages";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "@/constants/colors";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { useTheme } from "../themes/ThemeProvider";
 
 interface SettingsProps {
   list: TodoProps[];
@@ -88,7 +88,7 @@ export default function Settings({
                     onClick={() => handleChangeLanguage(value.code)}
                   >
                     {selectedLanguage === value.code ? <CircleDotIcon /> : <CircleIcon />}
-                    {value.label}
+                    {t(`${value.label}LanguageText`)}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuSubContent>
@@ -131,7 +131,7 @@ export default function Settings({
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
               <PaletteIcon />
-              <span>Default color</span>
+              <span>{t("defaultColor")}</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
@@ -151,7 +151,9 @@ export default function Settings({
                       }}
                     >
                       <PaintBucketIcon color={color.colors.default} />
-                      <span style={{ textTransform: "uppercase" }}>{color.name}</span>
+                      <span style={{ textTransform: "uppercase" }}>
+                        {t(`${color.name}Color`)}
+                      </span>
                     </DropdownMenuItem>
                   );
                 })}
