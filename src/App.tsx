@@ -7,15 +7,18 @@ import {
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import { Suspense, useEffect, useState } from "react";
 import { TodoProps } from "./interfaces/TodoProps";
-import { COLORS } from "./constants/colors";
 
 import TodoList from "./components/todos/TodoList";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import { COLORS } from "./constants/colors";
 
 export default function App() {
   const [userInput, setUserInput] = useState("");
   const [todoList, setTodoList] = useState<TodoProps[]>([]);
+  const [defaultColor, setDefaultColor] = useState<string>(
+    COLORS.find((color) => color.name === "gray")!.colors.default
+  );
 
   useEffect(() => {
     setTodoList(getLocalStorage());
@@ -26,7 +29,7 @@ export default function App() {
     const title: string = userInput;
     const completed: boolean = false;
     const createdAt: Date = new Date();
-    const color = COLORS.find((color) => color.name === "gray")!.colors.default;
+    const color = defaultColor;
 
     const todos = [
       ...todoList,
@@ -92,6 +95,8 @@ export default function App() {
             userInput={userInput}
             setUserInput={setUserInput}
             addTodo={addTodo}
+            defaultColor={defaultColor}
+            setDefaultColor={setDefaultColor}
           />
           <TodoList
             list={todoList}

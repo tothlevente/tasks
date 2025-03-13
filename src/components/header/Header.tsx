@@ -13,6 +13,8 @@ interface HeaderProps {
   userInput: string;
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
   addTodo: () => void;
+  defaultColor: string;
+  setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function Header({
@@ -21,6 +23,8 @@ export default function Header({
   userInput,
   setUserInput,
   addTodo,
+  defaultColor,
+  setDefaultColor,
 }: HeaderProps) {
   return (
     <div className="header">
@@ -44,6 +48,8 @@ export default function Header({
           <Settings
             list={list}
             setList={setList}
+            defaultColor={defaultColor}
+            setDefaultColor={setDefaultColor}
           />
           <ModeToggle />
         </div>

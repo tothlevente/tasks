@@ -35,16 +35,24 @@ import { useTranslation } from "react-i18next";
 import { COLORS } from "@/constants/colors";
 import { Button } from "../ui/button";
 import { useState } from "react";
+import { useTheme } from "../themes/ThemeProvider";
+
+interface SettingsProps {
+  list: TodoProps[];
+  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
+  defaultColor: string;
+  setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
+}
 
 export default function Settings({
   list,
   setList,
-}: {
-  list: TodoProps[];
-  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
-}) {
+  defaultColor,
+  setDefaultColor,
+}: SettingsProps) {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
 
+  const { theme } = useTheme();
   const { i18n, t } = useTranslation();
 
   const handleChangeLanguage = (language: string) => {
@@ -127,15 +135,26 @@ export default function Settings({
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
-                {COLORS.map((color, index) => (
-                  <DropdownMenuItem
-                    key={index}
-                    onClick={() => {}}
-                  >
-                    <PaintBucketIcon color={color.colors.default} />
-                    <span style={{ textTransform: "uppercase" }}>{color.name}</span>
-                  </DropdownMenuItem>
-                ))}
+                {COLORS.map((color, index) => {
+                  const themeColor =
+                    theme === "light" ? color.colors.light : color.colors.dark;
+
+                  return (
+                    <DropdownMenuItem
+                      key={index}
+                      onClick={() => {
+                        setDefaultColor(color.colors.default);
+                      }}
+                      style={{
+                        backgroundColor:
+                          color.colors.default === defaultColor ? themeColor : "transparent",
+                      }}
+                    >
+                      <PaintBucketIcon color={color.colors.default} />
+                      <span style={{ textTransform: "uppercase" }}>{color.name}</span>
+                    </DropdownMenuItem>
+                  );
+                })}
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
