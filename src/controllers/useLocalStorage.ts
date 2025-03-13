@@ -11,24 +11,24 @@ const key = "todos";
  * @returns {any[]} The parsed JSON object if the item exists, otherwise an empty array.
  */
 export const getLocalStorage = () => {
-  return localStorage.getItem(key) !== null
-    ? JSON.parse(localStorage.getItem(key)!)
-    : [];
+  return localStorage.getItem(key) !== null ? JSON.parse(localStorage.getItem(key)!) : [];
 };
 
 /**
  * Sets the local storage with the provided todo items and a new todo item.
  *
- * @param {TodoProps[]} todos - The existing list of todo items.
- * @param {number} id - The unique identifier for the new todo item.
- * @param {string} title - The title of the new todo item.
- * @param {boolean} completed - The completion status of the new todo item.
- * @param {Date} createdAt - The creation date of the new todo item.
+ * @param todos - The current list of todo items.
+ * @param id - The unique identifier for the new todo item.
+ * @param title - The title of the new todo item.
+ * @param color - The color associated with the new todo item.
+ * @param completed - The completion status of the new todo item.
+ * @param createdAt - The creation date of the new todo item.
  */
 export const setLocalStorage = (
   todos: TodoProps[],
   id: number,
   title: string,
+  color: string,
   completed: boolean,
   createdAt: Date
 ) => {
@@ -39,6 +39,7 @@ export const setLocalStorage = (
       {
         id: id,
         title: title,
+        color: color,
         completed: completed,
         createdAt: createdAt,
       },

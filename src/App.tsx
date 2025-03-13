@@ -39,7 +39,7 @@ export default function App() {
     ];
 
     setTodoList(todos);
-    setLocalStorage(todoList, id, title, completed, createdAt);
+    setLocalStorage(todoList, id, title, color, completed, createdAt);
     setUserInput("");
   }
 
@@ -52,8 +52,18 @@ export default function App() {
 
   function toggleCompleteTodo(key: number) {
     const values = [...todoList];
-    const update = values.map((tudu) =>
-      tudu.id === key ? { ...tudu, completed: !tudu.completed } : tudu
+    const update = values.map((todo) =>
+      todo.id === key ? { ...todo, completed: !todo.completed } : todo
+    );
+
+    setTodoList(update);
+    updateLocalStorage(update);
+  }
+
+  function changeTodoColor(key: number, color: string) {
+    const values = [...todoList];
+    const update = values.map((todo) =>
+      todo.id === key ? { ...todo, color: color } : todo
     );
 
     setTodoList(update);
@@ -67,6 +77,8 @@ export default function App() {
     setTodoList(update);
     updateLocalStorage(update);
   }
+
+  console.log(todoList);
 
   return (
     <Suspense fallback="loading">
@@ -87,6 +99,7 @@ export default function App() {
             toggleCompleteTodo={toggleCompleteTodo}
             copyTodo={copyTodo}
             deleteTodo={deleteTodo}
+            changeTodoColor={changeTodoColor}
           />
           <Footer />
         </div>

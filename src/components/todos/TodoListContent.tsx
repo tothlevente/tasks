@@ -5,17 +5,21 @@ import { Button } from "../ui/button";
 
 import CreatedAt from "./CreatedAt";
 
+interface TodoListContentProps {
+  list: TodoProps[];
+  toggleCompleteTodo: (index: number) => void;
+  copyTodo: (index: number) => void;
+  deleteTodo: (key: number) => void;
+  changeTodoColor: (key: number, color: string) => void;
+}
+
 export default function TodoListContent({
   list,
   toggleCompleteTodo,
   copyTodo,
   deleteTodo,
-}: {
-  list: TodoProps[];
-  toggleCompleteTodo: (index: number) => void;
-  copyTodo: (index: number) => void;
-  deleteTodo: (key: number) => void;
-}) {
+  changeTodoColor,
+}: TodoListContentProps) {
   return (
     <div className="todo-list-content">
       {list.map((value, index) => (
@@ -23,7 +27,10 @@ export default function TodoListContent({
           key={index}
           className="todo-card"
         >
-          <div className="todo-card-header">
+          <div
+            className="todo-card-header"
+            color={value.color}
+          >
             <p className={value.completed ? "todo-card-title completed" : "todo-card-title"}>
               {value.title}
             </p>
@@ -56,7 +63,10 @@ export default function TodoListContent({
                   <CircleCheckIcon />
                 </Button>
               )}
-              <PaletteDropdown />
+              <PaletteDropdown
+                changeTodoColor={changeTodoColor}
+                id={value.id}
+              />
               <Button
                 variant="outline"
                 size="icon"
