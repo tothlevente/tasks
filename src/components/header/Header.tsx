@@ -1,4 +1,5 @@
-import { TodoProps } from "@/interfaces/TodoProps";
+import { useTodoList } from "@/context/TodoListContext";
+import { createTodo } from "@/services/todoService";
 import { ModeToggle } from "../themes/ModeToggle";
 import { Settings } from "../settings/Settings";
 import { CirclePlusIcon } from "lucide-react";
@@ -7,24 +8,43 @@ import { HeaderTitle } from "./HeaderTitle";
 import { Button } from "../ui/button";
 
 interface HeaderProps {
-  list: TodoProps[];
-  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
   userInput: string;
   setUserInput: React.Dispatch<React.SetStateAction<string>>;
-  addTodo: () => void;
   defaultColor: string;
   setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const Header = ({
-  list,
-  setList,
   userInput,
   setUserInput,
-  addTodo,
   defaultColor,
   setDefaultColor,
 }: HeaderProps) => {
+  const { todoList, setTodoList } = useTodoList();
+
+  function addTodo() {
+    const id: number = Math.round(Math.random() * 10000000);
+    const title: string = userInput;
+    const completed: boolean = false;
+    const createdAt: Date = new Date();
+    const color = defaultColor;
+
+    const todos = [
+      ...todoList,
+      {
+        id: id,
+        title: title,
+        color: color,
+        completed: completed,
+        createdAt: createdAt,
+      },
+    ];
+
+    setTodoList(todos);
+    createTodo(todoList, id, title, color, completed, createdAt);
+    setUserInput("");
+  }
+
   return (
     <div className="header">
       <HeaderTitle />
@@ -45,8 +65,6 @@ export const Header = ({
             <CirclePlusIcon />
           </Button>
           <Settings
-            list={list}
-            setList={setList}
             defaultColor={defaultColor}
             setDefaultColor={setDefaultColor}
           />

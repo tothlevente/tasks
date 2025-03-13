@@ -29,8 +29,8 @@ import {
 
 import { downloadTodosAsText, downloadTodosAsJson } from "@/services/downloadService";
 import { updateTodos, deleteTodos } from "@/services/todoService";
+import { useTodoList } from "@/context/TodoListContext";
 import { useTheme } from "../themes/ThemeProvider";
-import { TodoProps } from "@/interfaces/TodoProps";
 import { LANGUAGES } from "@/constants/languages";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "@/constants/colors";
@@ -38,22 +38,16 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 
 interface SettingsProps {
-  list: TodoProps[];
-  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
   defaultColor: string;
   setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const Settings = ({
-  list,
-  setList,
-  defaultColor,
-  setDefaultColor,
-}: SettingsProps) => {
+export const Settings = ({ defaultColor, setDefaultColor }: SettingsProps) => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
 
-  const { theme } = useTheme();
+  const { todoList, setTodoList } = useTodoList();
   const { i18n, t } = useTranslation();
+  const { theme } = useTheme();
 
   const handleChangeLanguage = (language: string) => {
     setSelectedLanguage(language);
@@ -109,18 +103,18 @@ export const Settings = ({
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
                 <DropdownMenuItem
-                  disabled={list.length === 0}
+                  disabled={todoList.length === 0}
                   onClick={() => {
-                    downloadTodosAsText(list);
+                    downloadTodosAsText(todoList);
                   }}
                 >
                   <FileType2Icon />
                   <span>{t("downloadAllContentAsText")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  disabled={list.length === 0}
+                  disabled={todoList.length === 0}
                   onClick={() => {
-                    downloadTodosAsJson(list);
+                    downloadTodosAsJson(todoList);
                   }}
                 >
                   <FileJson2Icon />
@@ -173,12 +167,12 @@ export const Settings = ({
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
                 <DropdownMenuItem
-                  disabled={list.filter((todo) => todo.completed).length === 0}
+                  disabled={todoList.filter((todo) => todo.completed).length === 0}
                   className="delete"
                   onClick={() => {
-                    const updatedList = list.filter((todo) => !todo.completed);
+                    const updatedList = todoList.filter((todo) => !todo.completed);
 
-                    setList(updatedList);
+                    setTodoList(updatedList);
                     updateTodos(updatedList);
                   }}
                 >
@@ -186,10 +180,10 @@ export const Settings = ({
                   <span>{t("deleteCompletedContent")}</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  disabled={list.length === 0}
+                  disabled={todoList.length === 0}
                   className="delete"
                   onClick={() => {
-                    setList([]);
+                    setTodoList([]);
                     deleteTodos();
                   }}
                 >

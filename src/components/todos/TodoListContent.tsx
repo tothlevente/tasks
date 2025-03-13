@@ -1,31 +1,58 @@
 import { CircleCheckBigIcon, CircleCheckIcon, CopyIcon, TrashIcon } from "lucide-react";
 import { PaletteDropdown } from "../palette/PaletteDropdown";
+import { useTodoList } from "@/context/TodoListContext";
+import { updateTodos } from "@/services/todoService";
 import { useTheme } from "../themes/ThemeProvider";
-import { TodoProps } from "@/interfaces/TodoProps";
 import { COLORS } from "@/constants/colors";
 import { CreatedAt } from "./CreatedAt";
 import { Button } from "../ui/button";
 
 interface TodoListContentProps {
-  list: TodoProps[];
-  toggleCompleteTodo: (index: number) => void;
-  copyTodo: (index: number) => void;
-  deleteTodo: (key: number) => void;
-  changeTodoColor: (key: number, color: string) => void;
+  setUserInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const TodoListContent = ({
-  list,
-  toggleCompleteTodo,
-  copyTodo,
-  deleteTodo,
-  changeTodoColor,
-}: TodoListContentProps) => {
+export const TodoListContent = ({ setUserInput }: TodoListContentProps) => {
+  const { todoList, setTodoList } = useTodoList();
   const { theme } = useTheme();
+
+  function copyTodo(key: number) {
+    const values = [...todoList];
+    const update = values.filter((todo) => todo.id == key);
+
+    setUserInput(update[0].title);
+  }
+
+  function toggleCompleteTodo(key: number) {
+    const values = [...todoList];
+    const update = values.map((todo) =>
+      todo.id === key ? { ...todo, completed: !todo.completed } : todo
+    );
+
+    setTodoList(update);
+    updateTodos(update);
+  }
+
+  function changeTodoColor(key: number, color: string) {
+    const values = [...todoList];
+    const update = values.map((todo) =>
+      todo.id === key ? { ...todo, color: color } : todo
+    );
+
+    setTodoList(update);
+    updateTodos(update);
+  }
+
+  function deleteTodo(key: number) {
+    const values = [...todoList];
+    const update = values.filter((todo) => todo.id !== key);
+
+    setTodoList(update);
+    updateTodos(update);
+  }
 
   return (
     <div className="todo-list-content">
-      {list.map((value, index) => {
+      {todoList.map((value, index) => {
         const lightColor = COLORS.find((color) => color.colors.default === value.color)!
           .colors.light;
         const darkColor = COLORS.find((color) => color.colors.default === value.color)!

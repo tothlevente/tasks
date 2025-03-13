@@ -1,34 +1,26 @@
+import { useTodoList } from "@/context/TodoListContext";
 import { TodoListNoContent } from "./TodoListNoContent";
 import { TodoListContent } from "./TodoListContent";
-import { TodoProps } from "@/interfaces/TodoProps";
+import { getTodos } from "@/services/todoService";
+import { useEffect } from "react";
 
 interface TodoListProps {
-  list: TodoProps[];
-  toggleCompleteTodo: (index: number) => void;
-  copyTodo: (index: number) => void;
-  deleteTodo: (key: number) => void;
-  changeTodoColor: (key: number, color: string) => void;
+  setUserInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const TodoList = ({
-  list,
-  toggleCompleteTodo,
-  copyTodo,
-  deleteTodo,
-  changeTodoColor,
-}: TodoListProps) => {
+export const TodoList = ({ setUserInput }: TodoListProps) => {
+  const { todoList, setTodoList } = useTodoList();
+
+  useEffect(() => {
+    setTodoList(getTodos());
+  }, [setTodoList]);
+
   return (
     <div className="todo-list">
-      {list.length === 0 ? (
+      {todoList.length === 0 ? (
         <TodoListNoContent />
       ) : (
-        <TodoListContent
-          list={list}
-          toggleCompleteTodo={toggleCompleteTodo}
-          copyTodo={copyTodo}
-          deleteTodo={deleteTodo}
-          changeTodoColor={changeTodoColor}
-        />
+        <TodoListContent setUserInput={setUserInput} />
       )}
     </div>
   );
