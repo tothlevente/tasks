@@ -10,6 +10,20 @@ export interface Colors {
   };
 }
 
+/**
+ * An array of color objects, each containing a name and a set of color variations.
+ *
+ * @type {Colors[]}
+ *
+ * @property {string} name - The name of the color.
+ * @property {Object} colors - An object containing different variations of the color.
+ * @property {string} colors.default - The default shade of the color.
+ * @property {string} colors.light - The light shade of the color.
+ * @property {string} colors.dark - The dark shade of the color.
+ *
+ * @rules light: 200, default: 500, dark: 700
+ *
+ */
 export const COLORS: Colors[] = [
   {
     name: "gray",
