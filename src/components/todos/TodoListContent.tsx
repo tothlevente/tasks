@@ -1,5 +1,6 @@
 import { CircleCheckBigIcon, CircleCheckIcon, CopyIcon, TrashIcon } from "lucide-react";
 import { PaletteDropdown } from "../palette/PaletteDropdown";
+import { useUserInput } from "@/context/UserInputContext";
 import { useTodoList } from "@/context/TodoListContext";
 import { updateTodos } from "@/services/todoService";
 import { useTheme } from "../themes/ThemeProvider";
@@ -7,12 +8,9 @@ import { COLORS } from "@/constants/colors";
 import { CreatedAt } from "./CreatedAt";
 import { Button } from "../ui/button";
 
-interface TodoListContentProps {
-  setUserInput: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const TodoListContent = ({ setUserInput }: TodoListContentProps) => {
+export const TodoListContent = () => {
   const { todoList, setTodoList } = useTodoList();
+  const { setUserInput } = useUserInput();
   const { theme } = useTheme();
 
   function copyTodo(key: number) {

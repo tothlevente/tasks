@@ -29,6 +29,7 @@ import {
 
 import { downloadTodosAsText, downloadTodosAsJson } from "@/services/downloadService";
 import { updateTodos, deleteTodos } from "@/services/todoService";
+import { useDefaultColor } from "@/context/DefaultColorContext";
 import { useTodoList } from "@/context/TodoListContext";
 import { useTheme } from "../themes/ThemeProvider";
 import { LANGUAGES } from "@/constants/languages";
@@ -37,14 +38,10 @@ import { COLORS } from "@/constants/colors";
 import { Button } from "../ui/button";
 import { useState } from "react";
 
-interface SettingsProps {
-  defaultColor: string;
-  setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const Settings = ({ defaultColor, setDefaultColor }: SettingsProps) => {
+export const Settings = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("en");
 
+  const { defaultColor, setDefaultColor } = useDefaultColor();
   const { todoList, setTodoList } = useTodoList();
   const { i18n, t } = useTranslation();
   const { theme } = useTheme();

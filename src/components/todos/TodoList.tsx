@@ -4,11 +4,7 @@ import { TodoListContent } from "./TodoListContent";
 import { getTodos } from "@/services/todoService";
 import { useEffect } from "react";
 
-interface TodoListProps {
-  setUserInput: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const TodoList = ({ setUserInput }: TodoListProps) => {
+export const TodoList = () => {
   const { todoList, setTodoList } = useTodoList();
 
   useEffect(() => {
@@ -17,11 +13,7 @@ export const TodoList = ({ setUserInput }: TodoListProps) => {
 
   return (
     <div className="todo-list">
-      {todoList.length === 0 ? (
-        <TodoListNoContent />
-      ) : (
-        <TodoListContent setUserInput={setUserInput} />
-      )}
+      {todoList.length === 0 ? <TodoListNoContent /> : <TodoListContent />}
     </div>
   );
 };

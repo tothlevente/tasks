@@ -1,3 +1,5 @@
+import { useDefaultColor } from "@/context/DefaultColorContext";
+import { useUserInput } from "@/context/UserInputContext";
 import { useTodoList } from "@/context/TodoListContext";
 import { createTodo } from "@/services/todoService";
 import { ModeToggle } from "../themes/ModeToggle";
@@ -7,20 +9,10 @@ import { ContentInput } from "./ContentInput";
 import { HeaderTitle } from "./HeaderTitle";
 import { Button } from "../ui/button";
 
-interface HeaderProps {
-  userInput: string;
-  setUserInput: React.Dispatch<React.SetStateAction<string>>;
-  defaultColor: string;
-  setDefaultColor: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export const Header = ({
-  userInput,
-  setUserInput,
-  defaultColor,
-  setDefaultColor,
-}: HeaderProps) => {
+export const Header = () => {
+  const { userInput, setUserInput } = useUserInput();
   const { todoList, setTodoList } = useTodoList();
+  const { defaultColor } = useDefaultColor();
 
   function addTodo() {
     const id: number = Math.round(Math.random() * 10000000);
@@ -49,11 +41,7 @@ export const Header = ({
     <div className="header">
       <HeaderTitle />
       <div className="header-container">
-        <ContentInput
-          userInput={userInput}
-          setUserInput={setUserInput}
-          addTodo={addTodo}
-        />
+        <ContentInput addTodo={addTodo} />
         <div className="header-min-container">
           <Button
             variant="outline"
@@ -64,10 +52,7 @@ export const Header = ({
           >
             <CirclePlusIcon />
           </Button>
-          <Settings
-            defaultColor={defaultColor}
-            setDefaultColor={setDefaultColor}
-          />
+          <Settings />
           <ModeToggle />
         </div>
       </div>
