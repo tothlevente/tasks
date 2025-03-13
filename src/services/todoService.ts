@@ -10,7 +10,7 @@ const key = "todos";
  *
  * @returns {any[]} The parsed JSON object if the item exists, otherwise an empty array.
  */
-export const getLocalStorage = () => {
+export const getTodos = () => {
   return localStorage.getItem(key) !== null ? JSON.parse(localStorage.getItem(key)!) : [];
 };
 
@@ -24,7 +24,7 @@ export const getLocalStorage = () => {
  * @param completed - The completion status of the new todo item.
  * @param createdAt - The creation date of the new todo item.
  */
-export const setLocalStorage = (
+export const createTodo = (
   todos: TodoProps[],
   id: number,
   title: string,
@@ -52,7 +52,7 @@ export const setLocalStorage = (
  *
  * @param {TodoProps[]} todos - The array of todo items to be stored in local storage.
  */
-export const updateLocalStorage = (todos: TodoProps[]) => {
+export const updateTodos = (todos: TodoProps[]) => {
   localStorage.setItem(key, JSON.stringify(todos));
 };
 
@@ -61,6 +61,6 @@ export const updateLocalStorage = (todos: TodoProps[]) => {
  *
  * @param {string} key - The key of the item to be removed from local storage.
  */
-export const deleteLocalStorage = () => {
+export const deleteTodos = () => {
   localStorage.removeItem(key);
 };

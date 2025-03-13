@@ -27,8 +27,8 @@ import {
   Trash2Icon,
 } from "lucide-react";
 
-import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDownloads";
-import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalStorage";
+import { downloadTodosAsText, downloadTodosAsJson } from "@/services/downloadService";
+import { updateTodos, deleteTodos } from "@/services/todoService";
 import { useTheme } from "../themes/ThemeProvider";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { LANGUAGES } from "@/constants/languages";
@@ -179,7 +179,7 @@ export default function Settings({
                     const updatedList = list.filter((todo) => !todo.completed);
 
                     setList(updatedList);
-                    updateLocalStorage(updatedList);
+                    updateTodos(updatedList);
                   }}
                 >
                   <FileXIcon />
@@ -190,7 +190,7 @@ export default function Settings({
                   className="delete"
                   onClick={() => {
                     setList([]);
-                    deleteLocalStorage();
+                    deleteTodos();
                   }}
                 >
                   <FileX2Icon />

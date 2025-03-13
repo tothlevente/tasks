@@ -1,8 +1,4 @@
-import {
-  getLocalStorage,
-  setLocalStorage,
-  updateLocalStorage,
-} from "./controllers/useLocalStorage";
+import { getTodos, createTodo, updateTodos } from "./services/todoService";
 
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import { Suspense, useEffect, useState } from "react";
@@ -21,7 +17,7 @@ export default function App() {
   );
 
   useEffect(() => {
-    setTodoList(getLocalStorage());
+    setTodoList(getTodos());
   }, [setTodoList]);
 
   function addTodo() {
@@ -43,7 +39,7 @@ export default function App() {
     ];
 
     setTodoList(todos);
-    setLocalStorage(todoList, id, title, color, completed, createdAt);
+    createTodo(todoList, id, title, color, completed, createdAt);
     setUserInput("");
   }
 
@@ -61,7 +57,7 @@ export default function App() {
     );
 
     setTodoList(update);
-    updateLocalStorage(update);
+    updateTodos(update);
   }
 
   function changeTodoColor(key: number, color: string) {
@@ -71,7 +67,7 @@ export default function App() {
     );
 
     setTodoList(update);
-    updateLocalStorage(update);
+    updateTodos(update);
   }
 
   function deleteTodo(key: number) {
@@ -79,7 +75,7 @@ export default function App() {
     const update = values.filter((todo) => todo.id !== key);
 
     setTodoList(update);
-    updateLocalStorage(update);
+    updateTodos(update);
   }
 
   return (
