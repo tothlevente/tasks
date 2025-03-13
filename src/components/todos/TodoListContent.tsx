@@ -26,11 +26,9 @@ export default function TodoListContent({
         <div
           key={index}
           className="todo-card"
+          style={{ backgroundColor: value.color }}
         >
-          <div
-            className="todo-card-header"
-            color={value.color}
-          >
+          <div className="todo-card-header">
             <p className={value.completed ? "todo-card-title completed" : "todo-card-title"}>
               {value.title}
             </p>

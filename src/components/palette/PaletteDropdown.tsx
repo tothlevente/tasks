@@ -30,35 +30,20 @@ export const PaletteDropdown = ({ id, changeTodoColor }: PaletteDropdownProps) =
         side="right"
         className="min-w-5"
       >
-        <DropdownMenuItem>
-          <PaintBucketIcon
-            color={COLORS.gray}
-            onClick={() => changeTodoColor(id, COLORS.gray)}
-          />
+        <DropdownMenuItem onClick={() => changeTodoColor(id, COLORS.gray)}>
+          <PaintBucketIcon color={COLORS.gray} />
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <PaintBucketIcon
-            color={COLORS.yellow}
-            onClick={() => changeTodoColor(id, COLORS.yellow)}
-          />
+        <DropdownMenuItem onClick={() => changeTodoColor(id, COLORS.yellow)}>
+          <PaintBucketIcon color={COLORS.yellow} />
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <PaintBucketIcon
-            color={COLORS.red}
-            onClick={() => changeTodoColor(id, COLORS.red)}
-          />
+        <DropdownMenuItem onClick={() => changeTodoColor(id, COLORS.red)}>
+          <PaintBucketIcon color={COLORS.red} />
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <PaintBucketIcon
-            color={COLORS.blue}
-            onClick={() => changeTodoColor(id, COLORS.blue)}
-          />
+        <DropdownMenuItem onClick={() => changeTodoColor(id, COLORS.blue)}>
+          <PaintBucketIcon color={COLORS.blue} />
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          <PaintBucketIcon
-            color={COLORS.green}
-            onClick={() => changeTodoColor(id, COLORS.green)}
-          />
+        <DropdownMenuItem onClick={() => changeTodoColor(id, COLORS.green)}>
+          <PaintBucketIcon color={COLORS.green} />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
