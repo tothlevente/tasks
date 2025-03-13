@@ -14,7 +14,9 @@ export const Header = () => {
   const { todoList, setTodoList } = useTodoList();
   const { defaultColor } = useDefaultColor();
 
-  function addTodo() {
+  const maxLength = 50;
+
+  function handleAddTodo() {
     const id: number = Math.round(Math.random() * 10000000);
     const title: string = userInput;
     const completed: boolean = false;
@@ -41,14 +43,17 @@ export const Header = () => {
     <div className="header">
       <HeaderTitle />
       <div className="header-container">
-        <ContentInput addTodo={addTodo} />
+        <ContentInput
+          addTodo={handleAddTodo}
+          maxLength={maxLength}
+        />
         <div className="header-min-container">
           <Button
             variant="outline"
             size="icon"
             style={{ marginRight: "5px" }}
-            onClick={() => addTodo()}
-            disabled={userInput.length === 0}
+            onClick={() => handleAddTodo()}
+            disabled={userInput.length === 0 || userInput.length > maxLength}
           >
             <CirclePlusIcon />
           </Button>
