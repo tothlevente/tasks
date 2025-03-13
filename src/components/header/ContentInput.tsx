@@ -1,14 +1,24 @@
 import { useTranslation } from "react-i18next";
 import { Input } from "../ui/input";
 
+interface ContentInputProps {
+  userInput: string;
+  setUserInput: React.Dispatch<React.SetStateAction<string>>;
+  addTodo: () => void;
+}
+
 export default function ContentInput({
   userInput,
   setUserInput,
-}: {
-  userInput: string;
-  setUserInput: React.Dispatch<React.SetStateAction<string>>;
-}) {
+  addTodo,
+}: ContentInputProps) {
   const { t } = useTranslation();
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      addTodo();
+    }
+  };
 
   return (
     <Input
@@ -18,6 +28,7 @@ export default function ContentInput({
       onChange={(item) => {
         setUserInput(item.target.value);
       }}
+      onKeyDown={handleKeyDown}
     />
   );
 }
