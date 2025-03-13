@@ -7,19 +7,21 @@ import { ModeToggle } from "../themes/ModeToggle";
 import { CirclePlusIcon } from "lucide-react";
 import { Button } from "../ui/button";
 
+interface HeaderProps {
+  list: TodoProps[];
+  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
+  userInput: string;
+  setUserInput: React.Dispatch<React.SetStateAction<string>>;
+  addTodo: () => void;
+}
+
 export default function Header({
   list,
   setList,
   userInput,
   setUserInput,
   addTodo,
-}: {
-  list: TodoProps[];
-  setList: React.Dispatch<React.SetStateAction<TodoProps[]>>;
-  userInput: string;
-  setUserInput: React.Dispatch<React.SetStateAction<string>>;
-  addTodo: () => void;
-}) {
+}: HeaderProps) {
   return (
     <div className="header">
       <HeaderTitle />
@@ -27,6 +29,7 @@ export default function Header({
         <ContentInput
           userInput={userInput}
           setUserInput={setUserInput}
+          addTodo={addTodo}
         />
         <div className="header-min-container">
           <Button
