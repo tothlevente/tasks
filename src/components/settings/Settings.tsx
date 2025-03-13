@@ -29,7 +29,7 @@ import { downloadTodosAsText, downloadTodosAsJson } from "@/controllers/manageDo
 import { deleteLocalStorage, updateLocalStorage } from "@/controllers/useLocalStorage";
 import { TodoProps } from "@/interfaces/TodoProps";
 import { useTranslation } from "react-i18next";
-import { LANGUAGES } from "@/constants";
+import { LANGUAGES } from "@/constants/languages";
 import { Button } from "../ui/button";
 import { useState } from "react";
 
