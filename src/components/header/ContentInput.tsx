@@ -33,7 +33,6 @@ export const ContentInput = ({ addTodo, maxLength }: ContentInputProps) => {
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       maxLength={maxLength}
-      autoFocus
     />
   );
 };
