@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { getUserDefaultColor, setUserDefaultColor } from "@/services/defaultColorService";
+import { createContext, useContext, useEffect, useState } from "react";
 import { COLORS } from "@/constants/colors";
 
 interface DefaultColorContextProps {
@@ -15,8 +16,13 @@ export const DefaultColorProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [defaultColor, setDefaultColor] = useState<string>(
-    COLORS.find((color) => color.name === "gray")!.colors.default
+    () =>
+      getUserDefaultColor() || COLORS.find((color) => color.name === "gray")!.colors.default
   );
+
+  useEffect(() => {
+    setUserDefaultColor(defaultColor);
+  }, [defaultColor]);
 
   return (
     <DefaultColorContext.Provider value={{ defaultColor, setDefaultColor }}>
