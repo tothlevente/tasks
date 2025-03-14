@@ -1,4 +1,4 @@
-const languageKey = "userLanguage";
+const languageKey = "vite-ui-language";
 
 /**
  * Retrieves the user's language setting from local storage.
