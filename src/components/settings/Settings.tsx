@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 
 import { downloadTodosAsText, downloadTodosAsJson } from "@/services/downloadService";
+import { useSelectedLanguage } from "@/context/SelectedLanguageContext";
 import { updateTodos, deleteTodos } from "@/services/todoService";
 import { useDefaultColor } from "@/context/DefaultColorContext";
 import { useTodoList } from "@/context/TodoListContext";
@@ -36,19 +37,16 @@ import { LANGUAGES } from "@/constants/languages";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "@/constants/colors";
 import { Button } from "../ui/button";
-import { useState } from "react";
 
 export const Settings = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("en");
-
+  const { selectedLanguage, setSelectedLanguage } = useSelectedLanguage();
   const { defaultColor, setDefaultColor } = useDefaultColor();
   const { todoList, setTodoList } = useTodoList();
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const { theme } = useTheme();
 
   const handleChangeLanguage = (language: string) => {
     setSelectedLanguage(language);
-    i18n.changeLanguage(language);
   };
 
   const handleChangeColor = (color: string) => {

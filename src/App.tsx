@@ -1,3 +1,4 @@
+import { SelectedLanguageProvider } from "./context/SelectedLanguageContext";
 import { DefaultColorProvider } from "./context/DefaultColorContext";
 import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import { UserInputProvider } from "./context/UserInputContext";
@@ -15,15 +16,17 @@ export default function App() {
         storageKey="vite-ui-theme"
       >
         <TodoListProvider>
-          <DefaultColorProvider>
-            <UserInputProvider>
-              <div className="site-wrapper">
-                <Header />
-                <TodoList />
-                <Footer />
-              </div>
-            </UserInputProvider>
-          </DefaultColorProvider>
+          <SelectedLanguageProvider>
+            <DefaultColorProvider>
+              <UserInputProvider>
+                <div className="site-wrapper">
+                  <Header />
+                  <TodoList />
+                  <Footer />
+                </div>
+              </UserInputProvider>
+            </DefaultColorProvider>
+          </SelectedLanguageProvider>
         </TodoListProvider>
       </ThemeProvider>
     </Suspense>
