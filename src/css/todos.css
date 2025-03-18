@@ -30,13 +30,13 @@
   scroll-padding-top: 0.75rem;
   scroll-padding-bottom: 0.75rem;
   width: 500px;
-  height: 90px;
+  height: 130px;
   margin: 20px;
   padding: 10px;
 
   @media only screen and (max-width: 540px) {
     width: 320px;
-    height: 130px;
+    height: 150px;
   }
 }
 
@@ -48,6 +48,7 @@
 .todo-card-title {
   margin-bottom: 5px;
   font-weight: bold;
+  word-wrap: break-word;
 }
 
 .completed {
