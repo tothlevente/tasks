@@ -3,6 +3,8 @@
   "noContentDescription": "Bonvolu aldoni iom da enhavo unue.",
   "browserSavedContentWarn": "Pro sekurecaj kialoj, ne estas rekomendinde uzi ĉi tiun aplikaĵon en publika aŭ komuna komputilo kaj retumilo. Viaj notoj povas esti videblaj por aliaj.",
   "newContentInput": "Aldonu vian taskon ĉi tie. Klaku konservi kiam vi finis.",
+  "newContentInputCharacters": "Vi havas {{count}} pliajn karakterojn permesitajn.",
+  "newContentInputExceeded": "Vi superis la permesitan nombron da karakteroj.",
   "lightThemeText": "Luma",
   "darkThemeText": "Malhela",
   "systemThemeText": "Sistema",

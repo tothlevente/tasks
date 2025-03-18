@@ -3,6 +3,8 @@
   "noContentDescription": "Bitte füge zuerst etwas Inhalt hinzu.",
   "browserSavedContentWarn": "Aus Sicherheitsgründen wird davon abgeraten, diese Anwendung auf einem öffentlichen oder gemeinsam genutzten Computer und Browser zu verwenden. Deine Notizen könnten für andere sichtbar sein.",
   "newContentInput": "Füge deine Aufgabe hier hinzu. Klicke auf Speichern, wenn du fertig bist.",
+  "newContentInputCharacters": "Du hast noch {{count}} Zeichen übrig.",
+  "newContentInputExceeded": "Du hast die maximal zulässige Zeichenanzahl überschritten.",
   "lightThemeText": "Hell",
   "darkThemeText": "Dunkel",
   "systemThemeText": "System",
