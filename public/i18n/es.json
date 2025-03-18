@@ -3,6 +3,8 @@
   "noContentDescription": "Por favor, añade contenido primero.",
   "browserSavedContentWarn": "Por razones de seguridad, no se recomienda usar esta aplicación en un ordenador y navegador públicos o compartidos. Tus notas podrían ser visibles para otros.",
   "newContentInput": "Añade tu tarea aquí. Haz clic en guardar cuando hayas terminado.",
+  "newContentInputCharacters": "Te quedan {{count}} caracteres permitidos.",
+  "newContentInputExceeded": "Has excedido el número permitido de caracteres.",
   "lightThemeText": "Claro",
   "darkThemeText": "Oscuro",
   "systemThemeText": "Sistema",
