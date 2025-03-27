@@ -11,7 +11,7 @@ interface ContentFooterProps {
 
 export const ContentFooter = ({ value }: ContentFooterProps) => {
   return (
-    <div className="todo-card-footer">
+    <div className="task-card-footer">
       <div className={value.completed ? "completed" : ""}>
         <CreatedAt value={value.createdAt} />
       </div>
