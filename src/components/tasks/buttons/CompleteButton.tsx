@@ -1,5 +1,5 @@
 import { CircleCheckBigIcon, CircleCheckIcon } from "lucide-react";
-import { updateTasks } from "@/services/todoService";
+import { updateTasks } from "@/services/tasksService";
 import { useTasks } from "@/context/TasksContext";
 import { Button } from "@/components/ui/button";
 import { TaskProps } from "@/types/TaskProps";
@@ -27,7 +27,7 @@ export const CompleteButton = ({ value }: CompleteButtonProps) => {
         <Button
           variant="outline"
           size="icon"
-          className="todo-card-footer-button circle-check-button"
+          className="task-card-footer-button circle-check-button"
           onClick={() => {
             handleCompleteTask();
           }}
@@ -38,7 +38,7 @@ export const CompleteButton = ({ value }: CompleteButtonProps) => {
         <Button
           variant="outline"
           size="icon"
-          className="todo-card-footer-button"
+          className="task-card-footer-button"
           onClick={() => {
             handleCompleteTask();
           }}
