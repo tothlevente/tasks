@@ -1,6 +1,7 @@
 import { ExternalLinkIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../ui/button";
+
 import packageJson from "../../../package.json";
 
 export const Footer = () => {
