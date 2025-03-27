@@ -1,4 +1,4 @@
-import { updateTasks } from "@/services/todoService";
+import { updateTasks } from "@/services/tasksService";
 import { useTasks } from "@/context/TasksContext";
 import { Button } from "@/components/ui/button";
 import { TrashIcon } from "lucide-react";
@@ -22,7 +22,7 @@ export const DeleteButton = ({ id }: DeleteButtonProps) => {
     <Button
       variant="outline"
       size="icon"
-      className="todo-card-footer-button"
+      className="task-card-footer-button"
       onClick={() => {
         handleDeleteTask();
       }}
