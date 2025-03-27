@@ -6,8 +6,8 @@ interface ContentHeaderProps {
 
 export const ContentHeader = ({ value }: ContentHeaderProps) => {
   return (
-    <div className="todo-card-header">
-      <p className={value.completed ? "todo-card-title completed" : "todo-card-title"}>
+    <div className="task-card-header">
+      <p className={value.completed ? "task-card-title completed" : "task-card-title"}>
         {value.title}
       </p>
     </div>
