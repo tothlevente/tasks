@@ -7,9 +7,9 @@ export const NoContent = () => {
 
   return (
     <div className="task-list-no-content">
-      <b>{t("noContentTitle")}</b>
+      <h4 className="scroll-m-20 text-xl font-bold tracking-tight">{t("noContentTitle")}</h4>
       <p>{t("noContentDescription")}</p>
-      <div className="mt-4 w-[450px]">
+      <div className="mt-4 w-[250px] sm:w-[450px]">
         <Alert variant="destructive">
           <AlertCircleIcon className="h-4 w-4" />
           <AlertTitle>{t("browserSavedContentAlertTitle")}</AlertTitle>
