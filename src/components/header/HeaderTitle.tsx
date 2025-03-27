@@ -4,7 +4,7 @@ export const HeaderTitle = () => {
   return (
     <div className="header-title">
       <NotepadTextIcon />
-      <p>To-do list</p>
+      <p>Tasks</p>
     </div>
   );
 };
