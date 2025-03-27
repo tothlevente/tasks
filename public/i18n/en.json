@@ -1,7 +1,8 @@
 {
   "noContentTitle": "There is no any tasks yet.",
   "noContentDescription": "Please add some task first.",
-  "browserSavedContentWarn": "For security reasons, it is not recommended to use this application on a public or shared computer and browser. Your notes may be visible to others.",
+  "browserSavedContentAlertTitle": "Attention!",
+  "browserSavedContentAlertDescription": "For security reasons, it is not recommended to use this application on a public or shared computer and browser. Your notes may be visible to others.",
   "newHeaderInput": "Add your task here. Click save when you're done.",
   "newHeaderInputCharacters": "You have {{count}} more characters allowed.",
   "newHeaderInputExceeded": "You have exceeded the allowed number of characters.",
