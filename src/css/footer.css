@@ -1,20 +1,4 @@
-.footer {
-  display: grid;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.footer-link {
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-}
-
 .footer-link > a {
-  width: 130px;
   background-color: var(--button-background) !important;
+  color: var(--button-text) !important;
 }
