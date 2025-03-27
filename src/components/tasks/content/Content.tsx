@@ -9,7 +9,7 @@ export const Content = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="todo-list-content">
+    <div className="task-list-content">
       {tasks.map((value, index) => {
         const lightColor = COLORS.find((color) => color.colors.default === value.color)!
           .colors.light;
@@ -27,7 +27,7 @@ export const Content = () => {
         return (
           <div
             key={index}
-            className="todo-card"
+            className="task-card"
             style={{
               backgroundColor: backgroundColor,
             }}
