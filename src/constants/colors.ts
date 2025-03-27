@@ -34,6 +34,14 @@ export const COLORS: Colors[] = [
     },
   },
   {
+    name: "teal",
+    colors: {
+      default: "#14b8a6",
+      light: "#99f6e4",
+      dark: "#0f766e",
+    },
+  },
+  {
     name: "yellow",
     colors: {
       default: "#eab308",
@@ -55,6 +63,14 @@ export const COLORS: Colors[] = [
       default: "#0ea5e9",
       light: "#bae6fd",
       dark: "#0369a1",
+    },
+  },
+  {
+    name: "orange",
+    colors: {
+      default: "#f97316",
+      light: "#fed7aa",
+      dark: "#c2410c",
     },
   },
   {
