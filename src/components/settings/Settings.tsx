@@ -29,10 +29,10 @@ import {
 
 import { downloadTaskAsText, downloadTaskAsJson } from "@/services/downloadService";
 import { useSelectedLanguage } from "@/context/SelectedLanguageContext";
-import { updateTasks, deleteTasks } from "@/services/todoService";
+import { updateTasks, deleteTasks } from "@/services/tasksService";
 import { useDefaultColor } from "@/context/DefaultColorContext";
-import { useTasks } from "@/context/TasksContext";
 import { useTheme } from "../../context/ThemeContext";
+import { useTasks } from "@/context/TasksContext";
 import { LANGUAGES } from "@/constants/languages";
 import { useTranslation } from "react-i18next";
 import { COLORS } from "@/constants/colors";
@@ -162,7 +162,7 @@ export const Settings = () => {
             <DropdownMenuPortal>
               <DropdownMenuSubContent className="w-48">
                 <DropdownMenuItem
-                  disabled={tasks.filter((todo) => todo.completed).length === 0}
+                  disabled={tasks.filter((task) => task.completed).length === 0}
                   className="delete"
                   onClick={() => {
                     const updatedList = tasks.filter((task) => !task.completed);
