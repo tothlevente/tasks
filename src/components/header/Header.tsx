@@ -1,7 +1,7 @@
 import { useDefaultColor } from "@/context/DefaultColorContext";
 import { CirclePlusIcon, NotepadTextIcon } from "lucide-react";
 import { useUserInput } from "@/context/UserInputContext";
-import { createTasks } from "@/services/todoService";
+import { createTasks } from "@/services/tasksService";
 import { useTasks } from "@/context/TasksContext";
 import { ModeToggle } from "../themes/ModeToggle";
 import { Settings } from "../settings/Settings";
