@@ -42,7 +42,7 @@ export const Header = () => {
     <div className="header">
       <div className="header-title">
         <NotepadTextIcon />
-        <p>Tasks</p>
+        <h3 className="scroll-m-20 text-2xl font-extrabold tracking-tight">Tasks</h3>
       </div>
       <div className="header-container">
         <HeaderInput

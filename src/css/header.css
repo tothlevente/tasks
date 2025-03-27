@@ -22,10 +22,6 @@
   }
 }
 
-.header-title > p {
-  font-weight: bold;
-}
-
 .header-container {
   display: flex;
   gap: 7px;
