@@ -1,5 +1,5 @@
 import { useUserInput } from "@/context/UserInputContext";
-import { useTodoList } from "@/context/TodoListContext";
+import { useTasks } from "@/context/TasksContext";
 import { Button } from "@/components/ui/button";
 import { CopyIcon } from "lucide-react";
 
@@ -9,11 +9,11 @@ interface CopyButtonProps {
 
 export const CopyButton = ({ id }: CopyButtonProps) => {
   const { setUserInput } = useUserInput();
-  const { todoList } = useTodoList();
+  const { tasks } = useTasks();
 
-  const handleCopyTodo = () => {
-    const values = [...todoList];
-    const update = values.filter((todo) => todo.id == id);
+  const handleCopyTask = () => {
+    const values = [...tasks];
+    const update = values.filter((task) => task.id == id);
 
     setUserInput(update[0].title);
   };
@@ -22,9 +22,9 @@ export const CopyButton = ({ id }: CopyButtonProps) => {
     <Button
       variant="outline"
       size="icon"
-      className="todo-card-footer-button"
+      className="task-card-footer-button"
       onClick={() => {
-        handleCopyTodo();
+        handleCopyTask();
       }}
     >
       <CopyIcon />

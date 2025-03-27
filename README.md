@@ -1,6 +1,6 @@
-# To-do list :scroll:
+# Tasks :scroll:
 
-In this to-do list web application you can create, complete and delete tasks.
+This task manager helps you keep track of your work by allowing you to create, complete, and delete tasks.
 
 ## Available scripts:
 
@@ -24,7 +24,7 @@ This application is available in the following languages:
 
 - [Shadcn UI](https://ui.shadcn.com/)
 - [Lucide Icons](https://lucide.dev)
-- [Google Fonts](https://fonts.google.com/specimen/Josefin+Sans)
+- [Google Fonts](https://fonts.google.com)
 - [GeeksForGeeks](https://www.geeksforgeeks.org/create-todo-app-using-reactjs)
 - [Josefin Sans Font](https://github.com/googlefonts/josefinsans)
 
@@ -36,7 +36,7 @@ This implies that the code might not be production-ready, thoroughly tested, or 
 
 ## License:
 
-- This project is licensed under MIT.
-- The used font is licensed under the SIL Open Font License, Version 1.1.
+- This project is licensed under [MIT](https://github.com/tothlevente/tasks/blob/main/LICENSE).
+- The used font is licensed under the [SIL Open Font License, Version 1.1](https://fonts.google.com/specimen/Josefin+Sans/license).
 
 For more information please visit the license files.

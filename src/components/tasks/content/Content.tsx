@@ -1,16 +1,16 @@
-import { useTodoList } from "@/context/TodoListContext";
-import { useTheme } from "../../themes/ThemeProvider";
+import { useTheme } from "../../../context/ThemeContext";
+import { useTasks } from "@/context/TasksContext";
 import { ContentFooter } from "./ContentFooter";
 import { ContentHeader } from "./ContentHeader";
 import { COLORS } from "@/constants/colors";
 
 export const Content = () => {
-  const { todoList } = useTodoList();
+  const { tasks } = useTasks();
   const { theme } = useTheme();
 
   return (
-    <div className="todo-list-content">
-      {todoList.map((value, index) => {
+    <div className="task-list-content">
+      {tasks.map((value, index) => {
         const lightColor = COLORS.find((color) => color.colors.default === value.color)!
           .colors.light;
         const darkColor = COLORS.find((color) => color.colors.default === value.color)!
@@ -27,7 +27,7 @@ export const Content = () => {
         return (
           <div
             key={index}
-            className="todo-card"
+            className="task-card"
             style={{
               backgroundColor: backgroundColor,
             }}

@@ -1,21 +1,21 @@
-.todo-list {
+.task-list {
   @media only screen and (min-width: 800px) {
     flex: 1;
   }
 }
 
-.todo-list-content {
+.task-list-content {
   display: grid;
   justify-items: center;
 }
 
-.todo-list-no-content {
+.task-list-no-content {
   display: grid;
   justify-items: center;
   margin-top: 50px;
 }
 
-.todo-card {
+.task-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,12 +40,12 @@
   }
 }
 
-.todo-card-header {
+.task-card-header {
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.todo-card-title {
+.task-card-title {
   margin-bottom: 5px;
   font-weight: bold;
   word-wrap: break-word;
@@ -56,7 +56,7 @@
   text-decoration: line-through;
 }
 
-.todo-card-footer {
+.task-card-footer {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -72,7 +72,7 @@
   }
 }
 
-.todo-card-footer-button {
+.task-card-footer-button {
   margin-right: 3px;
 }
 

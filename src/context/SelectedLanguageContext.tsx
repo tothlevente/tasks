@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getUserLanguage, setUserLanguage } from "@/services/languageService";
+import { getLanguage, setLanguage } from "@/services/languageService";
 import { useTranslation } from "react-i18next";
 
 interface SelectedLanguageContextProps {
@@ -15,14 +15,12 @@ export const SelectedLanguageContext = createContext<SelectedLanguageContextProp
 export const SelectedLanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState<string>(
-    getUserLanguage() || "en"
-  );
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(getLanguage() || "en");
 
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    setUserLanguage(selectedLanguage);
+    setLanguage(selectedLanguage);
     i18n.changeLanguage(selectedLanguage);
   }, [selectedLanguage]);
 

@@ -1,17 +1,17 @@
 import { ChangeColorDropdown } from "../dropdowns/ChangeColorDropdown";
 import { CompleteButton } from "../buttons/CompleteButton";
 import { DeleteButton } from "../buttons/DeleteButton";
-import { TodoProps } from "@/interfaces/TodoProps";
 import { CopyButton } from "../buttons/CopyButton";
 import { CreatedAt } from "../metadata/CreatedAt";
+import { TaskProps } from "@/types/TaskProps";
 
 interface ContentFooterProps {
-  value: TodoProps;
+  value: TaskProps;
 }
 
 export const ContentFooter = ({ value }: ContentFooterProps) => {
   return (
-    <div className="todo-card-footer">
+    <div className="task-card-footer">
       <div className={value.completed ? "completed" : ""}>
         <CreatedAt value={value.createdAt} />
       </div>

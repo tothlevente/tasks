@@ -5,7 +5,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { useTheme } from "@/components/themes/ThemeProvider";
+import { useTheme } from "@/context/ThemeContext";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { Moon, Sun } from "lucide-react";

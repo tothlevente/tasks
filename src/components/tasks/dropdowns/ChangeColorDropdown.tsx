@@ -6,18 +6,18 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { PaintBucketIcon, PaletteIcon } from "lucide-react";
+import { updateTasks } from "@/services/tasksService";
 import { Colors, COLORS } from "@/constants/colors";
+import { useTasks } from "@/context/TasksContext";
+import { TaskProps } from "@/types/TaskProps";
 import { Button } from "../../ui/button";
-import { useTodoList } from "@/context/TodoListContext";
-import { updateTodos } from "@/services/todoService";
-import { TodoProps } from "@/interfaces/TodoProps";
 
 interface ChangeColorDropdownProps {
-  value: TodoProps;
+  value: TaskProps;
 }
 
 export const ChangeColorDropdown = ({ value }: ChangeColorDropdownProps) => {
-  const { todoList, setTodoList } = useTodoList();
+  const { tasks, setTasks } = useTasks();
 
   const colorDefaultGray = COLORS.find((color) => color.name === "gray")!.colors.default;
   const colorDefaultYellow = COLORS.find((color) => color.name === "yellow")!.colors.default;
@@ -27,13 +27,13 @@ export const ChangeColorDropdown = ({ value }: ChangeColorDropdownProps) => {
   const colorDefaultPink = COLORS.find((color) => color.name === "pink")!.colors.default;
 
   function handleColorChange(color: Colors) {
-    const values = [...todoList];
-    const update = values.map((todo) =>
-      todo.id === value.id ? { ...todo, color: color.colors.default } : todo
+    const values = [...tasks];
+    const update = values.map((task) =>
+      task.id === value.id ? { ...task, color: color.colors.default } : task
     );
 
-    setTodoList(update);
-    updateTodos(update);
+    setTasks(update);
+    updateTasks(update);
   }
 
   return (
@@ -42,7 +42,7 @@ export const ChangeColorDropdown = ({ value }: ChangeColorDropdownProps) => {
         <Button
           variant="outline"
           size="icon"
-          className="todo-card-footer-button"
+          className="task-card-footer-button"
           disabled={value.completed}
         >
           <PaletteIcon />

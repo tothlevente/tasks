@@ -1,24 +1,24 @@
 import { CircleCheckBigIcon, CircleCheckIcon } from "lucide-react";
-import { useTodoList } from "@/context/TodoListContext";
-import { updateTodos } from "@/services/todoService";
-import { TodoProps } from "@/interfaces/TodoProps";
+import { updateTasks } from "@/services/tasksService";
+import { useTasks } from "@/context/TasksContext";
 import { Button } from "@/components/ui/button";
+import { TaskProps } from "@/types/TaskProps";
 
 interface CompleteButtonProps {
-  value: TodoProps;
+  value: TaskProps;
 }
 
 export const CompleteButton = ({ value }: CompleteButtonProps) => {
-  const { todoList, setTodoList } = useTodoList();
+  const { tasks, setTasks } = useTasks();
 
-  const handleCompleteTodo = () => {
-    const values = [...todoList];
-    const update = values.map((todo) =>
-      todo.id === value.id ? { ...todo, completed: !todo.completed } : todo
+  const handleCompleteTask = () => {
+    const values = [...tasks];
+    const update = values.map((task) =>
+      task.id === value.id ? { ...task, completed: !task.completed } : task
     );
 
-    setTodoList(update);
-    updateTodos(update);
+    setTasks(update);
+    updateTasks(update);
   };
 
   return (
@@ -27,9 +27,9 @@ export const CompleteButton = ({ value }: CompleteButtonProps) => {
         <Button
           variant="outline"
           size="icon"
-          className="todo-card-footer-button circle-check-button"
+          className="task-card-footer-button circle-check-button"
           onClick={() => {
-            handleCompleteTodo();
+            handleCompleteTask();
           }}
         >
           <CircleCheckBigIcon />
@@ -38,9 +38,9 @@ export const CompleteButton = ({ value }: CompleteButtonProps) => {
         <Button
           variant="outline"
           size="icon"
-          className="todo-card-footer-button"
+          className="task-card-footer-button"
           onClick={() => {
-            handleCompleteTodo();
+            handleCompleteTask();
           }}
         >
           <CircleCheckIcon />
