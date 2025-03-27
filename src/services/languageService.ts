@@ -1,26 +1,32 @@
-const languageKey = "vite-ui-language";
+/**
+ * A constant key used to store and retrieve the selected language preference
+ * from local storage or similar persistent storage mechanisms.
+ *
+ * This key is utilized by the application to manage and persist the user's
+ * language settings across sessions.
+ */
+const languageKey = "tasks-language";
 
 /**
- * Retrieves the user's language setting from local storage.
+ * Retrieves the currently selected language from local storage.
  *
- * @returns {string | null} The stored language setting, or null if not set.
+ * @returns {string | null} The language code as a string if it exists in local storage,
+ * or `null` if no language is set.
  */
-export const getUserLanguage = (): string | null => {
+export const getLanguage = (): string | null => {
   return localStorage.getItem(languageKey);
 };
 
 /**
- * Sets the user's language setting in local storage.
+ * Sets the preferred language in the local storage.
  *
- * @param {string} language - The language setting to be stored.
+ * @param language - The language code to be stored (e.g., "en", "fr", "es").
+ *
+ * @remarks
+ * This function uses the `localStorage` API to persist the language preference
+ * across sessions. Ensure that `languageKey` is defined and accessible in the
+ * current scope.
  */
-export const setUserLanguage = (language: string): void => {
+export const setLanguage = (language: string): void => {
   localStorage.setItem(languageKey, language);
-};
-
-/**
- * Deletes the user's language setting from local storage.
- */
-export const deleteUserLanguage = (): void => {
-  localStorage.removeItem(languageKey);
 };
