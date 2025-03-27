@@ -22,7 +22,7 @@ export const CopyButton = ({ id }: CopyButtonProps) => {
     <Button
       variant="outline"
       size="icon"
-      className="todo-card-footer-button"
+      className="task-card-footer-button"
       onClick={() => {
         handleCopyTask();
       }}
