@@ -1,9 +1,9 @@
 import { SelectedLanguageProvider } from "./context/SelectedLanguageContext";
 import { DefaultColorProvider } from "./context/DefaultColorContext";
-import { ThemeProvider } from "@/components/themes/ThemeProvider";
 import { UserInputProvider } from "./context/UserInputContext";
-import { TodoListProvider } from "./context/TodoListContext";
-import { TodoList } from "./components/todos/TodoList";
+import { TasksList } from "./components/tasks/TasksList";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { TasksProvider } from "./context/TasksContext";
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 import { Suspense } from "react";
@@ -11,23 +11,20 @@ import { Suspense } from "react";
 export default function App() {
   return (
     <Suspense fallback="loading">
-      <ThemeProvider
-        defaultTheme="light"
-        storageKey="vite-ui-theme"
-      >
-        <TodoListProvider>
+      <ThemeProvider defaultTheme="light">
+        <TasksProvider>
           <SelectedLanguageProvider>
             <DefaultColorProvider>
               <UserInputProvider>
                 <div className="site-wrapper">
                   <Header />
-                  <TodoList />
+                  <TasksList />
                   <Footer />
                 </div>
               </UserInputProvider>
             </DefaultColorProvider>
           </SelectedLanguageProvider>
-        </TodoListProvider>
+        </TasksProvider>
       </ThemeProvider>
     </Suspense>
   );
