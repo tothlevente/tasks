@@ -1,7 +1,7 @@
 {
   "name": "tasks",
   "private": true,
-  "version": "3.4.11",
+  "version": "3.4.12",
   "type": "module",
   "scripts": {
     "start": "vite",
