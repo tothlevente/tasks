@@ -19,13 +19,6 @@ interface ChangeColorDropdownProps {
 export const ChangeColorDropdown = ({ value }: ChangeColorDropdownProps) => {
   const { tasks, setTasks } = useTasks();
 
-  const colorDefaultGray = COLORS.find((color) => color.name === "gray")!.colors.default;
-  const colorDefaultYellow = COLORS.find((color) => color.name === "yellow")!.colors.default;
-  const colorDefaultRed = COLORS.find((color) => color.name === "red")!.colors.default;
-  const colorDefaultBlue = COLORS.find((color) => color.name === "blue")!.colors.default;
-  const colorDefaultGreen = COLORS.find((color) => color.name === "green")!.colors.default;
-  const colorDefaultPink = COLORS.find((color) => color.name === "pink")!.colors.default;
-
   function handleColorChange(color: Colors) {
     const values = [...tasks];
     const update = values.map((task) =>
@@ -52,36 +45,14 @@ export const ChangeColorDropdown = ({ value }: ChangeColorDropdownProps) => {
         side="right"
         className="min-w-5"
       >
-        <DropdownMenuItem
-          onClick={() => handleColorChange(COLORS.find((color) => color.name === "gray")!)}
-        >
-          <PaintBucketIcon color={colorDefaultGray} />
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => handleColorChange(COLORS.find((color) => color.name === "yellow")!)}
-        >
-          <PaintBucketIcon color={colorDefaultYellow} />
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => handleColorChange(COLORS.find((color) => color.name === "red")!)}
-        >
-          <PaintBucketIcon color={colorDefaultRed} />
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => handleColorChange(COLORS.find((color) => color.name === "blue")!)}
-        >
-          <PaintBucketIcon color={colorDefaultBlue} />
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => handleColorChange(COLORS.find((color) => color.name === "green")!)}
-        >
-          <PaintBucketIcon color={colorDefaultGreen} />
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => handleColorChange(COLORS.find((color) => color.name === "pink")!)}
-        >
-          <PaintBucketIcon color={colorDefaultPink} />
-        </DropdownMenuItem>
+        {COLORS.map((color, index) => (
+          <DropdownMenuItem
+            key={index}
+            onClick={() => handleColorChange(color)}
+          >
+            <PaintBucketIcon color={color.colors.default} />
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
