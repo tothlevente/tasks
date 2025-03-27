@@ -1,5 +1,5 @@
 import { useTasks } from "@/context/TasksContext";
-import { getTasks } from "@/services/todoService";
+import { getTasks } from "@/services/tasksService";
 import { NoContent } from "./content/NoContent";
 import { Content } from "./content/Content";
 import { useEffect } from "react";
@@ -11,5 +11,5 @@ export const TasksList = () => {
     setTasks(getTasks());
   }, [setTasks]);
 
-  return <div className="todo-list">{tasks.length === 0 ? <NoContent /> : <Content />}</div>;
+  return <div className="task-list">{tasks.length === 0 ? <NoContent /> : <Content />}</div>;
 };
