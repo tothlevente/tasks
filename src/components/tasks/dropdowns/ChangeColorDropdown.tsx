@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { PaintBucketIcon, PaletteIcon } from "lucide-react";
-import { updateTasks } from "@/services/todoService";
+import { updateTasks } from "@/services/tasksService";
 import { Colors, COLORS } from "@/constants/colors";
 import { useTasks } from "@/context/TasksContext";
 import { TaskProps } from "@/types/TaskProps";
@@ -42,7 +42,7 @@ export const ChangeColorDropdown = ({ value }: ChangeColorDropdownProps) => {
         <Button
           variant="outline"
           size="icon"
-          className="todo-card-footer-button"
+          className="task-card-footer-button"
           disabled={value.completed}
         >
           <PaletteIcon />
