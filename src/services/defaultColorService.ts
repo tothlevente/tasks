@@ -3,7 +3,7 @@
  * This key is used by the application to retrieve and set the default color
  * for the user interface.
  */
-const defaultColorKey = "vite-ui-default-color";
+const defaultColorKey = "tasks-default-color";
 
 /**
  * Retrieves the user's default color from local storage.
