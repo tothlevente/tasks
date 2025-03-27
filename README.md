@@ -1,6 +1,6 @@
-# To-do list :scroll:
+# Tasks :scroll:
 
-In this to-do list web application you can create, complete and delete tasks.
+This task manager helps you keep track of your work by allowing you to create, complete, and delete tasks.
 
 ## Available scripts:
 
